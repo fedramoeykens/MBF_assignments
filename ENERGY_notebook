@@ -1,0 +1,171 @@
+# 6. Energy consumption (EPC) analysis
+# 'EPC' = the variable energyConsumption (kWh/m2/year, lower = more efficient)
+
+# 6.0 Preparation
+# Working on a copy, so data_realo stays unchanged
+epc = data_realo.copy()
+
+
+# Remove the last months (data runs until 08/2026, see section 4)
+epc = epc[epc["lastListing year_month"] <= pd.Period("2026-08", freq="M")]
+
+# Year of the listing
+epc["year"] = epc["lastListing"].dt.year
+
+# Price per m2
+epc["price_m2"] = epc["price"] / epc["habitableArea"]
+
+# Only the listings that have an energy value, from 2015 onwards
+epc_valid = epc.dropna(subset=["energyConsumption"])
+epc_valid = epc_valid[epc_valid["year"] >= 2015]
+
+# Split by housing type
+houses = epc_valid[epc_valid["housingType"] == "HOUSE"]
+apartments = epc_valid[epc_valid["housingType"] == "APARTMENT"]
+
+print("Listings:", len(epc), "| with energy value (2015+):", len(epc_valid))
+
+# 6.1 Relationship between price per m2 and energy consumption
+
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
+
+ax1.scatter(houses["energyConsumption"], houses["price_m2"], s=3, alpha=0.3)
+ax1.set_title("Houses")
+ax1.set_xlabel("Energy consumption (kWh/m2/year)")
+ax1.set_ylabel("Price per m2 (EUR)")
+
+ax2.scatter(apartments["energyConsumption"], apartments["price_m2"], s=3, alpha=0.3)
+ax2.set_title("Apartments")
+ax2.set_xlabel("Energy consumption (kWh/m2/year)")
+ax2.set_ylabel("Price per m2 (EUR)")
+
+plt.suptitle("Price per m2 versus energy consumption")
+plt.tight_layout()
+plt.show()
+
+
+# 6.2 Relationship between price per m2 and build year
+# ---------------------------------------------------------------------------
+
+houses_all = epc[epc["housingType"] == "HOUSE"]
+apartments_all = epc[epc["housingType"] == "APARTMENT"]
+
+fig, axes = plt.subplots(2, 2, figsize=(14, 9))
+
+# Top row: every listing is a dot
+axes[0, 0].scatter(houses_all["buildYear"], houses_all["price_m2"], s=3, alpha=0.3)
+axes[0, 0].set_title("Houses")
+axes[0, 1].scatter(apartments_all["buildYear"], apartments_all["price_m2"], s=3, alpha=0.3)
+axes[0, 1].set_title("Apartments")
+
+# Bottom row: average price per m2 for each build year
+houses_all.groupby("buildYear")["price_m2"].mean().plot(ax=axes[1, 0])
+axes[1, 0].set_title("Houses: average price per m2")
+apartments_all.groupby("buildYear")["price_m2"].mean().plot(ax=axes[1, 1])
+axes[1, 1].set_title("Apartments: average price per m2")
+
+for ax in axes.flatten():
+    ax.set_xlabel("Build year")
+    ax.set_ylabel("Price per m2 (EUR)")
+plt.tight_layout()
+plt.show()
+
+# 6.3 Average energy consumption per region (admin2)
+# ---------------------------------------------------------------------------
+
+by_admin2 = epc_valid.groupby("admin2")["energyConsumption"].mean().sort_values()
+print(by_admin2.round(1))
+
+by_admin2.plot(kind="barh", figsize=(9, 5))
+plt.title("Average energy consumption per region")
+plt.xlabel("Energy consumption (kWh/m2/year)")
+plt.tight_layout()
+plt.show()
+
+# 6.4 Change in energy consumption over time
+# ---------------------------------------------------------------------------
+
+fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(18, 5), sharey=True)
+
+# (a) Whole dataset
+epc_valid.groupby("year")["energyConsumption"].mean().plot(ax=ax1, marker="o")
+ax1.set_title("Whole dataset")
+
+# (b) Per region (admin2)
+epc_valid.groupby(["year", "admin2"])["energyConsumption"].mean().unstack().plot(ax=ax2, marker="o")
+ax2.set_title("Per region (admin2)")
+
+# (c) Per locality: only the 5 localities with the most listings
+top_localities = epc_valid["locality"].value_counts().head(5).index
+top = epc_valid[epc_valid["locality"].isin(top_localities)]
+top.groupby(["year", "locality"])["energyConsumption"].mean().unstack().plot(ax=ax3, marker="o")
+ax3.set_title("5 localities with the most listings")
+
+for ax in [ax1, ax2, ax3]:
+    ax.set_xlabel("Year")
+ax1.set_ylabel("Average energy consumption (kWh/m2/year)")
+plt.tight_layout()
+plt.show()
+
+# 6.5 Average energy consumption and average price per year
+# ---------------------------------------------------------------------------
+
+fig, axes = plt.subplots(2, 2, figsize=(14, 9))
+
+# Top row: houses
+houses.groupby("year")["energyConsumption"].mean().plot(ax=axes[0, 0], marker="o")
+axes[0, 0].set_title("Houses: average energy consumption")
+axes[0, 0].set_ylabel("kWh/m2/year")
+houses.groupby("year")["price"].mean().plot(ax=axes[0, 1], marker="o", color="green")
+axes[0, 1].set_title("Houses: average price")
+axes[0, 1].set_ylabel("EUR")
+
+# Bottom row: apartments
+apartments.groupby("year")["energyConsumption"].mean().plot(ax=axes[1, 0], marker="o")
+axes[1, 0].set_title("Apartments: average energy consumption")
+axes[1, 0].set_ylabel("kWh/m2/year")
+apartments.groupby("year")["price"].mean().plot(ax=axes[1, 1], marker="o", color="green")
+axes[1, 1].set_title("Apartments: average price")
+axes[1, 1].set_ylabel("EUR")
+
+for ax in axes.flatten():
+    ax.set_xlabel("Year")
+plt.tight_layout()
+plt.show()
+
+# 6.6 Difference between houses and apartments
+# ---------------------------------------------------------------------------
+
+mean_energy = epc_valid.groupby("housingType")["energyConsumption"].mean()
+mean_price_m2 = epc_valid.groupby("housingType")["price_m2"].mean()
+mean_price = epc_valid.groupby("housingType")["price"].mean()
+print(mean_energy.round(1))
+print(mean_price_m2.round(0))
+print(mean_price.round(0))
+
+fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(15, 5))
+
+mean_energy.plot(kind="bar", ax=ax1, color=["tab:orange", "tab:blue"])
+ax1.set_title("Average energy consumption (kWh/m2/year)")
+
+mean_price_m2.plot(kind="bar", ax=ax2, color=["tab:orange", "tab:blue"])
+ax2.set_title("Average price per m2 (EUR)")
+
+mean_price.plot(kind="bar", ax=ax3, color=["tab:orange", "tab:blue"])
+ax3.set_title("Average price (EUR)")
+
+for ax in [ax1, ax2, ax3]:
+    ax.set_xlabel("")
+    ax.tick_params(axis="x", rotation=0)
+plt.tight_layout()
+plt.show()
+
+#Energy consumption: 
+dus als ik dit uitvoer in spyder zie je relatie tussen de verschillende zaken met de grafieken
+belangrijkste zaken die zichtbaar zijn: 
+1)hoe hoger de prijs per vierkante meter, hoe lager de energy consumption
+2) hoe later het building year, hoe hoger de prijs per vierkante meter (en dus uit grafiek 1, hoe lager de energy consumption) 
+3) de regio's met de hoogste energy consumption
+4) evolutie energy consumption per regio => dalende trend overal dus huizen steeds beter energy consumption
+5) huizen en appartementen: dalende energy consumption over de jaren
+6) energy consumption lager bij appartementen dan bij huizen + gemiddelde prijs per vierkante meter ook higer bij appartementen dan bij huizen (maar komt dus overeen want hogere prijs, betere energy consumption)
