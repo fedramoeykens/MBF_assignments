@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_56b22e41310b50ee995526146138f48d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_56b22e41310b50ee995526146138f48d" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_56b22e41310b50ee995526146138f48d = L.map(
+                "map_56b22e41310b50ee995526146138f48d",
+                {
+                    center: [51.045, 3.725],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_56b22e41310b50ee995526146138f48d);
+
+            
+
+        
+    
+            var tile_layer_87425782e4c0d1cd84bbee44fedebb6c = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_87425782e4c0d1cd84bbee44fedebb6c.addTo(map_56b22e41310b50ee995526146138f48d);
+        
+    
+            var tile_layer_1f0b7c91054a5bac3b2dc6313a5636f9 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_1f0b7c91054a5bac3b2dc6313a5636f9.addTo(map_56b22e41310b50ee995526146138f48d);
+        
+    
+            var tile_layer_048bb280ed8b6d3f05b2aca2976202c4 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Esri World Imagery",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_048bb280ed8b6d3f05b2aca2976202c4.addTo(map_56b22e41310b50ee995526146138f48d);
+        
+    
+            var feature_group_91e328c2cda22e55d7dffa9809c5e5ff = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_7a1afbb34406350d8aec251d8a9e54ab = L.circle(
+                [51.03552, 3.71072],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e2e9f0ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_7a1afbb34406350d8aec251d8a9e54ab.bindTooltip(
+                `<div>
+                     Gent-Sint-Pieters · 1000-1500 m · -1% vs 1500 m average (€3,882 vs €3,939/m²) · n=3453
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_9ef682a0f05f8cae160eb8a07ef4276d = L.circle(
+                [51.05588, 3.74029],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d8939bff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_9ef682a0f05f8cae160eb8a07ef4276d.bindTooltip(
+                `<div>
+                     Gent-Dampoort · 1000-1500 m · +7% vs 1500 m average (€3,933 vs €3,692/m²) · n=5791
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_5a2eb57a72c80a809f47c062a6ee3054 = L.circle(
+                [51.03863, 3.75629],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e2b3b9ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_5a2eb57a72c80a809f47c062a6ee3054.bindTooltip(
+                `<div>
+                     Gentbrugge · 1000-1500 m · +4% vs 1500 m average (€3,156 vs €3,022/m²) · n=3893
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_96b00264518f0257ba05787da6caa328 = L.circle(
+                [51.08903, 3.71961],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e9caceff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_96b00264518f0257ba05787da6caa328.bindTooltip(
+                `<div>
+                     Wondelgem · 1000-1500 m · +3% vs 1500 m average (€2,996 vs €2,910/m²) · n=1763
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_c8dc42d1e2d582c18dea726e917f6246 = L.circle(
+                [51.047, 3.653],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e8c6cbff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_c8dc42d1e2d582c18dea726e917f6246.bindTooltip(
+                `<div>
+                     Drongen · 1000-1500 m · +3% vs 1500 m average (€2,946 vs €2,855/m²) · n=276
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_4cfcf55d7b3bc0035150e0f494419188 = L.circle(
+                [51.003, 3.746],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f5eff0ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_4cfcf55d7b3bc0035150e0f494419188.bindTooltip(
+                `<div>
+                     Merelbeke · 1000-1500 m · +1% vs 1500 m average (€3,330 vs €3,312/m²) · n=667
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_c878475157f4dbe54309d55137b559c8 = L.circle(
+                [50.993, 3.656],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dae4edff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_c878475157f4dbe54309d55137b559c8.bindTooltip(
+                `<div>
+                     De Pinte · 1000-1500 m · -2% vs 1500 m average (€2,878 vs €2,936/m²) · n=464
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_59b3cf250cf83aa719de9ac261a8ff5b = L.circle(
+                [51.002, 3.799],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e8edf2ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_59b3cf250cf83aa719de9ac261a8ff5b.bindTooltip(
+                `<div>
+                     Melle · 1000-1500 m · -1% vs 1500 m average (€2,654 vs €2,682/m²) · n=278
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_b360a669561ed235d38e9776f107269b = L.circle(
+                [51.113, 3.707],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f7f5f6ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_b360a669561ed235d38e9776f107269b.bindTooltip(
+                `<div>
+                     Evergem · 1000-1500 m · +0% vs 1500 m average (€2,914 vs €2,910/m²) · n=632
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_1ff0f9c3d47226dcaacfe1a83c3b509c = L.circle(
+                [51.078, 3.623],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f5eff0ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_1ff0f9c3d47226dcaacfe1a83c3b509c.bindTooltip(
+                `<div>
+                     Landegem · 1000-1500 m · +1% vs 1500 m average (€2,894 vs €2,879/m²) · n=85
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_a6d7fd8a03015ad161f34867c84d9c6b = L.circle(
+                [51.03552, 3.71072],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#efdde0ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_a6d7fd8a03015ad161f34867c84d9c6b.bindTooltip(
+                `<div>
+                     Gent-Sint-Pieters · 500-1000 m · +2% vs 1500 m average (€4,006 vs €3,939/m²) · n=2835
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_54b7fc835d24d5b59f840e6032dedeed = L.circle(
+                [51.05588, 3.74029],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bed1e3ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_54b7fc835d24d5b59f840e6032dedeed.bindTooltip(
+                `<div>
+                     Gent-Dampoort · 500-1000 m · -4% vs 1500 m average (€3,550 vs €3,692/m²) · n=4530
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_73d5a941f7b76c17ba0906f24d1608ff = L.circle(
+                [51.03863, 3.75629],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c9d8e7ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_73d5a941f7b76c17ba0906f24d1608ff.bindTooltip(
+                `<div>
+                     Gentbrugge · 500-1000 m · -3% vs 1500 m average (€2,927 vs €3,022/m²) · n=2978
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_bc9fe60d0d205e74b0ab3023a864c29f = L.circle(
+                [51.08903, 3.71961],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f7f7f7ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_bc9fe60d0d205e74b0ab3023a864c29f.bindTooltip(
+                `<div>
+                     Wondelgem · 500-1000 m · +0% vs 1500 m average (€2,910 vs €2,910/m²) · n=1151
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_86eac9384f61d0489cfde9cc19b5ff36 = L.circle(
+                [51.047, 3.653],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e4eaf1ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_86eac9384f61d0489cfde9cc19b5ff36.bindTooltip(
+                `<div>
+                     Drongen · 500-1000 m · -1% vs 1500 m average (€2,817 vs €2,855/m²) · n=392
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_56c33523f9339dc6c997686cb32d77af = L.circle(
+                [51.003, 3.746],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c24a59ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_56c33523f9339dc6c997686cb32d77af.bindTooltip(
+                `<div>
+                     Merelbeke · 500-1000 m · +11% vs 1500 m average (€3,684 vs €3,312/m²) · n=471
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_b3376281de7d239ca522cda9ecf633fb = L.circle(
+                [50.993, 3.656],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f2f4f6ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_b3376281de7d239ca522cda9ecf633fb.bindTooltip(
+                `<div>
+                     De Pinte · 500-1000 m · -0% vs 1500 m average (€2,925 vs €2,936/m²) · n=286
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_cee5a76fe89f5ab14039ff1e5999f142 = L.circle(
+                [51.002, 3.799],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e0aab1ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_cee5a76fe89f5ab14039ff1e5999f142.bindTooltip(
+                `<div>
+                     Melle · 500-1000 m · +5% vs 1500 m average (€2,816 vs €2,682/m²) · n=424
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_9bb1cda4b00d3b54012c059011f5b4e2 = L.circle(
+                [51.113, 3.707],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d4e0ebff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_9bb1cda4b00d3b54012c059011f5b4e2.bindTooltip(
+                `<div>
+                     Evergem · 500-1000 m · -2% vs 1500 m average (€2,841 vs €2,910/m²) · n=411
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_3dfdffe11bf38ecd1e592e0570c94a93 = L.circle(
+                [51.078, 3.623],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d8e2edff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_3dfdffe11bf38ecd1e592e0570c94a93.bindTooltip(
+                `<div>
+                     Landegem · 500-1000 m · -2% vs 1500 m average (€2,819 vs €2,879/m²) · n=19
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_bda1e570848f6bf617ba9670041f032c = L.circle(
+                [51.03552, 3.71072],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f3ebecff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_bda1e570848f6bf617ba9670041f032c.bindTooltip(
+                `<div>
+                     Gent-Sint-Pieters · 250-500 m · +1% vs 1500 m average (€3,972 vs €3,939/m²) · n=1132
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_a5287105e4366ec260ed428aff116be2 = L.circle(
+                [51.05588, 3.74029],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3675b4ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_a5287105e4366ec260ed428aff116be2.bindTooltip(
+                `<div>
+                     Gent-Dampoort · 250-500 m · -13% vs 1500 m average (€3,211 vs €3,692/m²) · n=1536
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_ba951693646157a4293bbe1c9a8ec1cc = L.circle(
+                [51.03863, 3.75629],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3171b2ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_ba951693646157a4293bbe1c9a8ec1cc.bindTooltip(
+                `<div>
+                     Gentbrugge · 250-500 m · -13% vs 1500 m average (€2,616 vs €3,022/m²) · n=437
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_eb0b05ce00c968d6319a1b06faa38975 = L.circle(
+                [51.08903, 3.71961],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a0bcd9ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_eb0b05ce00c968d6319a1b06faa38975.bindTooltip(
+                `<div>
+                     Wondelgem · 250-500 m · -6% vs 1500 m average (€2,737 vs €2,910/m²) · n=422
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_072df9e4cf0624ca472ebdcc8fac6c57 = L.circle(
+                [51.047, 3.653],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bfd1e4ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_072df9e4cf0624ca472ebdcc8fac6c57.bindTooltip(
+                `<div>
+                     Drongen · 250-500 m · -4% vs 1500 m average (€2,746 vs €2,855/m²) · n=99
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_157f4a8310f03e650fe909be05a15860 = L.circle(
+                [51.003, 3.746],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2166acff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_157f4a8310f03e650fe909be05a15860.bindTooltip(
+                `<div>
+                     Merelbeke · 250-500 m · -25% vs 1500 m average (€2,496 vs €3,312/m²) · n=193
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_b99ab1ac6536bb99f84b389f549ab95f = L.circle(
+                [50.993, 3.656],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d17c86ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_b99ab1ac6536bb99f84b389f549ab95f.bindTooltip(
+                `<div>
+                     De Pinte · 250-500 m · +8% vs 1500 m average (€3,172 vs €2,936/m²) · n=126
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_9923853c44cd47f619ca732062b391c4 = L.circle(
+                [51.002, 3.799],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#95b4d5ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_9923853c44cd47f619ca732062b391c4.bindTooltip(
+                `<div>
+                     Melle · 250-500 m · -7% vs 1500 m average (€2,502 vs €2,682/m²) · n=182
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_53e2b5dc64f54b0e7f3aad68d0c9b889 = L.circle(
+                [51.113, 3.707],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e4b7bdff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_53e2b5dc64f54b0e7f3aad68d0c9b889.bindTooltip(
+                `<div>
+                     Evergem · 250-500 m · +4% vs 1500 m average (€3,031 vs €2,910/m²) · n=201
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_9bcf505817b77c46c5ea307209e56e5a = L.circle(
+                [51.03552, 3.71072],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c8d7e7ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_9bcf505817b77c46c5ea307209e56e5a.bindTooltip(
+                `<div>
+                     Gent-Sint-Pieters · 0-250 m · -3% vs 1500 m average (€3,814 vs €3,939/m²) · n=234
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_c1537c847b923ef044989f8f3f36800f = L.circle(
+                [51.05588, 3.74029],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e8edf2ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_c1537c847b923ef044989f8f3f36800f.bindTooltip(
+                `<div>
+                     Gent-Dampoort · 0-250 m · -1% vs 1500 m average (€3,653 vs €3,692/m²) · n=284
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_146be3f3556137ea0ba67dae0bf7b476 = L.circle(
+                [51.03863, 3.75629],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#447eb9ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_146be3f3556137ea0ba67dae0bf7b476.bindTooltip(
+                `<div>
+                     Gentbrugge · 0-250 m · -12% vs 1500 m average (€2,656 vs €3,022/m²) · n=176
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_7ee4c93ca2ee42d538872c3390edabd2 = L.circle(
+                [51.08903, 3.71961],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#5086bdff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_7ee4c93ca2ee42d538872c3390edabd2.bindTooltip(
+                `<div>
+                     Wondelgem · 0-250 m · -11% vs 1500 m average (€2,580 vs €2,910/m²) · n=242
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_d77fb82e93286bdbacdef7ae3abe8e0c = L.circle(
+                [51.047, 3.653],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f2e7e8ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_d77fb82e93286bdbacdef7ae3abe8e0c.bindTooltip(
+                `<div>
+                     Drongen · 0-250 m · +1% vs 1500 m average (€2,886 vs €2,855/m²) · n=19
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_dc356b8835aa09a218ec03b9be3628bb = L.circle(
+                [51.003, 3.746],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2166acff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_dc356b8835aa09a218ec03b9be3628bb.bindTooltip(
+                `<div>
+                     Merelbeke · 0-250 m · -21% vs 1500 m average (€2,628 vs €3,312/m²) · n=44
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_735444a42ec209606e27eeac6e375430 = L.circle(
+                [50.993, 3.656],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f6f1f2ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_735444a42ec209606e27eeac6e375430.bindTooltip(
+                `<div>
+                     De Pinte · 0-250 m · +0% vs 1500 m average (€2,948 vs €2,936/m²) · n=37
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_4a8bd029aad51ed0e91e683e36fe9928 = L.circle(
+                [51.002, 3.799],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a0bcd9ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_4a8bd029aad51ed0e91e683e36fe9928.bindTooltip(
+                `<div>
+                     Melle · 0-250 m · -6% vs 1500 m average (€2,524 vs €2,682/m²) · n=105
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_47bd145b8981725e14fcb9bd77a73b26 = L.circle(
+                [51.113, 3.707],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f5f0f0ff", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_91e328c2cda22e55d7dffa9809c5e5ff);
+        
+    
+            circle_47bd145b8981725e14fcb9bd77a73b26.bindTooltip(
+                `<div>
+                     Evergem · 0-250 m · +0% vs 1500 m average (€2,925 vs €2,910/m²) · n=101
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_91e328c2cda22e55d7dffa9809c5e5ff.addTo(map_56b22e41310b50ee995526146138f48d);
+        
+    
+            var circle_marker_5e1aad70ec26438f6aabb95e1e16a660 = L.circleMarker(
+                [51.03552, 3.71072],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_56b22e41310b50ee995526146138f48d);
+        
+    
+            circle_marker_5e1aad70ec26438f6aabb95e1e16a660.bindTooltip(
+                `<div>
+                     Gent-Sint-Pieters
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7659c14139c0b0e895e7873f2953811f = L.circleMarker(
+                [51.05588, 3.74029],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_56b22e41310b50ee995526146138f48d);
+        
+    
+            circle_marker_7659c14139c0b0e895e7873f2953811f.bindTooltip(
+                `<div>
+                     Gent-Dampoort
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_297f0aa705715ac72f974241fb95a0b1 = L.circleMarker(
+                [51.03863, 3.75629],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_56b22e41310b50ee995526146138f48d);
+        
+    
+            circle_marker_297f0aa705715ac72f974241fb95a0b1.bindTooltip(
+                `<div>
+                     Gentbrugge
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_69a9505e2ef100515d60f12ca9c90a03 = L.circleMarker(
+                [51.08903, 3.71961],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_56b22e41310b50ee995526146138f48d);
+        
+    
+            circle_marker_69a9505e2ef100515d60f12ca9c90a03.bindTooltip(
+                `<div>
+                     Wondelgem
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_07fb270fd4d16990a0c0782404964dea = L.circleMarker(
+                [51.047, 3.653],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_56b22e41310b50ee995526146138f48d);
+        
+    
+            circle_marker_07fb270fd4d16990a0c0782404964dea.bindTooltip(
+                `<div>
+                     Drongen
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2182b65d712d70e25cecc0a55d495522 = L.circleMarker(
+                [51.003, 3.746],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_56b22e41310b50ee995526146138f48d);
+        
+    
+            circle_marker_2182b65d712d70e25cecc0a55d495522.bindTooltip(
+                `<div>
+                     Merelbeke
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f5d200ce075a66c43d7ad50aa39d77fb = L.circleMarker(
+                [50.993, 3.656],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_56b22e41310b50ee995526146138f48d);
+        
+    
+            circle_marker_f5d200ce075a66c43d7ad50aa39d77fb.bindTooltip(
+                `<div>
+                     De Pinte
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bc4b941434d729b96933745cf6daf599 = L.circleMarker(
+                [51.002, 3.799],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_56b22e41310b50ee995526146138f48d);
+        
+    
+            circle_marker_bc4b941434d729b96933745cf6daf599.bindTooltip(
+                `<div>
+                     Melle
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_50a0d0425e90e8da64ec633795e61c17 = L.circleMarker(
+                [51.113, 3.707],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_56b22e41310b50ee995526146138f48d);
+        
+    
+            circle_marker_50a0d0425e90e8da64ec633795e61c17.bindTooltip(
+                `<div>
+                     Evergem
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0131d01e458a2ba789b38feaf4b0d72b = L.circleMarker(
+                [51.078, 3.623],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_56b22e41310b50ee995526146138f48d);
+        
+    
+            circle_marker_0131d01e458a2ba789b38feaf4b0d72b.bindTooltip(
+                `<div>
+                     Landegem
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+    var color_map_664980c3994b5d43b0217a73332969aa = {};
+
+    
+    color_map_664980c3994b5d43b0217a73332969aa.color = d3.scale.threshold()
+              .domain([-14.511873692347665, -14.453709869933446, -14.395546047519227, -14.337382225105008, -14.27921840269079, -14.221054580276569, -14.16289075786235, -14.10472693544813, -14.046563113033912, -13.988399290619693, -13.930235468205474, -13.872071645791255, -13.813907823377036, -13.755744000962817, -13.697580178548598, -13.639416356134378, -13.581252533720159, -13.52308871130594, -13.464924888891721, -13.406761066477502, -13.348597244063283, -13.290433421649064, -13.232269599234845, -13.174105776820626, -13.115941954406406, -13.057778131992187, -12.999614309577968, -12.941450487163749, -12.88328666474953, -12.825122842335311, -12.766959019921092, -12.708795197506873, -12.650631375092654, -12.592467552678436, -12.534303730264215, -12.476139907849996, -12.417976085435777, -12.359812263021558, -12.30164844060734, -12.24348461819312, -12.185320795778901, -12.127156973364682, -12.068993150950462, -12.010829328536243, -11.952665506122024, -11.894501683707805, -11.836337861293586, -11.778174038879367, -11.720010216465148, -11.66184639405093, -11.60368257163671, -11.545518749222492, -11.487354926808273, -11.429191104394054, -11.371027281979833, -11.312863459565614, -11.254699637151395, -11.196535814737176, -11.138371992322957, -11.080208169908738, -11.02204434749452, -10.963880525080299, -10.90571670266608, -10.847552880251861, -10.789389057837642, -10.731225235423423, -10.673061413009204, -10.614897590594985, -10.556733768180766, -10.498569945766548, -10.440406123352329, -10.38224230093811, -10.32407847852389, -10.26591465610967, -10.207750833695453, -10.149587011281232, -10.091423188867015, -10.033259366452794, -9.975095544038576, -9.916931721624357, -9.858767899210136, -9.800604076795917, -9.742440254381698, -9.68427643196748, -9.62611260955326, -9.567948787139041, -9.509784964724822, -9.451621142310604, -9.393457319896385, -9.335293497482166, -9.277129675067947, -9.218965852653728, -9.160802030239509, -9.10263820782529, -9.04447438541107, -8.98631056299685, -8.928146740582632, -8.869982918168413, -8.811819095754192, -8.753655273339975, -8.695491450925754, -8.637327628511535, -8.579163806097316, -8.520999983683097, -8.462836161268878, -8.40467233885466, -8.34650851644044, -8.288344694026222, -8.230180871612003, -8.172017049197784, -8.113853226783565, -8.055689404369346, -7.997525581955126, -7.939361759540907, -7.881197937126688, -7.823034114712469, -7.76487029229825, -7.70670646988403, -7.648542647469812, -7.590378825055592, -7.532215002641373, -7.474051180227154, -7.4158873578129345, -7.3577235353987165, -7.299559712984497, -7.241395890570278, -7.183232068156059, -7.12506824574184, -7.06690442332762, -7.008740600913401, -6.950576778499182, -6.8924129560849625, -6.8342491336707445, -6.776085311256525, -6.717921488842307, -6.659757666428087, -6.601593844013867, -6.543430021599649, -6.485266199185428, -6.427102376771211, -6.3689385543569905, -6.310774731942773, -6.2526109095285545, -6.194447087114334, -6.136283264700115, -6.078119442285896, -6.019955619871675, -5.961791797457458, -5.903627975043239, -5.8454641526290185, -5.7873003302148, -5.729136507800581, -5.670972685386364, -5.612808862972143, -5.554645040557924, -5.496481218143705, -5.438317395729486, -5.380153573315267, -5.321989750901048, -5.263825928486828, -5.205662106072609, -5.147498283658392, -5.089334461244171, -5.031170638829952, -4.973006816415733, -4.914842994001512, -4.856679171587295, -4.798515349173076, -4.740351526758856, -4.682187704344637, -4.62402388193042, -4.565860059516199, -4.50769623710198, -4.449532414687761, -4.39136859227354, -4.333204769859323, -4.275040947445104, -4.216877125030885, -4.158713302616665, -4.100549480202446, -4.042385657788229, -3.984221835374008, -3.926058012959789, -3.86789419054557, -3.8097303681313512, -3.7515665457171323, -3.6934027233029134, -3.6352389008886927, -3.577075078474474, -3.5189112560602567, -3.460747433646036, -3.402583611231817, -3.344419788817598, -3.2862559664033775, -3.2280921439891603, -3.1699283215749414, -3.1117644991607207, -3.053600676746502, -2.9954368543322847, -2.9372730319180658, -2.879109209503845, -2.820945387089626, -2.7627815646754073, -2.7046177422611883, -2.6464539198469694, -2.5882900974327505, -2.53012627501853, -2.471962452604311, -2.4137986301900938, -2.355634807775873, -2.297470985361654, -2.2393071629474353, -2.1811433405332163, -2.1229795181189974, -2.0648156957047785, -2.006651873290558, -1.948488050876339, -1.8903242284621218, -1.832160406047901, -1.7739965836336822, -1.7158327612194633, -1.6576689388052426, -1.5995051163910254, -1.5413412939768065, -1.4831774715625876, -1.425013649148367, -1.3668498267341498, -1.3086860043199309, -1.2505221819057102, -1.1923583594914913, -1.1341945370772724, -1.0760307146630534, -1.0178668922488345, -0.9597030698346156, -0.9015392474203949, -0.843375425006176, -0.7852116025919589, -0.7270477801777382, -0.6688839577635193, -0.6107201353493004, -0.5525563129350815, -0.49439249052086254, -0.4362286681066436, -0.37806484569242294, -0.319901023278204, -0.2617372008639869, -0.20357337844976797, -0.14540955603554728, -0.08724573362132837, -0.029081911207109457, 0.029081911207109457, 0.08724573362132837, 0.14540955603554728, 0.20357337844976797, 0.2617372008639851, 0.319901023278204, 0.3780648456924247, 0.4362286681066436, 0.49439249052086254, 0.5525563129350815, 0.6107201353493004, 0.6688839577635193, 0.72704778017774, 0.7852116025919571, 0.843375425006176, 0.9015392474203967, 0.9597030698346156, 1.0178668922488345, 1.0760307146630517, 1.1341945370772724, 1.1923583594914913, 1.2505221819057102, 1.3086860043199309, 1.366849826734148, 1.425013649148367, 1.4831774715625876, 1.5413412939768083, 1.5995051163910237, 1.6576689388052426, 1.715832761219465, 1.773996583633684, 1.8321604060479029, 1.8903242284621182, 1.9484880508763407, 2.006651873290556, 2.064815695704775, 2.1229795181189974, 2.1811433405332163, 2.2393071629474353, 2.297470985361654, 2.355634807775873, 2.413798630190092, 2.4719624526043145, 2.5301262750185334, 2.5882900974327487, 2.6464539198469677, 2.7046177422611866, 2.7627815646754055, 2.820945387089628, 2.879109209503847, 2.9372730319180658, 2.9954368543322847, 3.0536006767465036, 3.111764499160719, 3.169928321574938, 3.2280921439891603, 3.2862559664033792, 3.344419788817598, 3.402583611231817, 3.460747433646036, 3.518911256060255, 3.5770750784744774, 3.6352389008886927, 3.6934027233029116, 3.7515665457171306, 3.8097303681313495, 3.8678941905455684, 3.926058012959791, 3.9842218353740098, 4.042385657788229, 4.100549480202448, 4.1587133026166665, 4.216877125030882, 4.275040947445104, 4.333204769859323, 4.391368592273542, 4.449532414687761, 4.50769623710198, 4.565860059516199, 4.624023881930418, 4.68218770434464, 4.740351526758856, 4.7985153491730745, 4.8566791715872935, 4.914842994001512, 4.973006816415731, 5.031170638829954, 5.089334461244173, 5.147498283658392, 5.2056621060726105, 5.263825928486826, 5.321989750901045, 5.380153573315267, 5.438317395729486, 5.496481218143705, 5.554645040557924, 5.612808862972143, 5.670972685386362, 5.729136507800584, 5.787300330214803, 5.8454641526290185, 5.903627975043237, 5.961791797457456, 6.019955619871675, 6.078119442285894, 6.136283264700117, 6.194447087114336, 6.2526109095285545, 6.310774731942773, 6.368938554356989, 6.427102376771208, 6.48526619918543, 6.543430021599649, 6.601593844013868, 6.659757666428087, 6.717921488842306, 6.776085311256525, 6.834249133670747, 6.8924129560849625, 6.950576778499181, 7.0087406009134, 7.066904423327619, 7.125068245741838, 7.183232068156061, 7.2413958905702795, 7.2995597129844985, 7.357723535398717, 7.415887357812936, 7.474051180227152, 7.532215002641371, 7.590378825055593, 7.648542647469812, 7.706706469884031, 7.76487029229825, 7.823034114712469, 7.881197937126688, 7.93936175954091, 7.997525581955125, 8.055689404369344, 8.113853226783563, 8.172017049197782, 8.230180871612001, 8.288344694026224, 8.346508516440442, 8.404672338854661, 8.46283616126888, 8.520999983683096, 8.579163806097315, 8.637327628511533, 8.695491450925756, 8.753655273339975, 8.811819095754194, 8.869982918168413, 8.928146740582632, 8.98631056299685, 9.04447438541107, 9.102638207825288, 9.160802030239507, 9.218965852653726, 9.277129675067945, 9.335293497482164, 9.393457319896386, 9.451621142310605, 9.509784964724824, 9.567948787139043, 9.626112609553259, 9.684276431967477, 9.7424402543817, 9.800604076795919, 9.858767899210138, 9.916931721624357, 9.975095544038576, 10.033259366452794, 10.091423188867013, 10.149587011281232, 10.207750833695451, 10.26591465610967, 10.324078478523889, 10.382242300938108, 10.440406123352327, 10.49856994576655, 10.556733768180768, 10.614897590594987, 10.673061413009203, 10.731225235423421, 10.78938905783764, 10.847552880251863, 10.905716702666082, 10.9638805250803, 11.02204434749452, 11.080208169908738, 11.138371992322957, 11.19653581473718, 11.254699637151395, 11.312863459565614, 11.371027281979833, 11.429191104394052, 11.48735492680827, 11.54551874922249, 11.603682571636712, 11.661846394050931, 11.72001021646515, 11.778174038879365, 11.836337861293584, 11.894501683707803, 11.952665506122026, 12.010829328536245, 12.068993150950464, 12.127156973364682, 12.185320795778901, 12.24348461819312, 12.30164844060734, 12.359812263021558, 12.417976085435777, 12.476139907849996, 12.534303730264215, 12.592467552678434, 12.650631375092656, 12.708795197506875, 12.766959019921094, 12.825122842335313, 12.883286664749528, 12.941450487163747, 12.999614309577966, 13.057778131992189, 13.115941954406408, 13.174105776820626, 13.232269599234845, 13.290433421649064, 13.348597244063283, 13.406761066477502, 13.464924888891721, 13.52308871130594, 13.581252533720159, 13.639416356134378, 13.697580178548597, 13.75574400096282, 13.813907823377038, 13.872071645791257, 13.930235468205472, 13.988399290619691, 14.04656311303391, 14.104726935448129, 14.162890757862352, 14.22105458027657, 14.27921840269079, 14.337382225105008, 14.395546047519227, 14.453709869933446, 14.511873692347665])
+              .range(['#2166acff', '#2166acff', '#2267adff', '#2368adff', '#2468adff', '#2569aeff', '#2669aeff', '#276aaeff', '#286bafff', '#286bafff', '#296cafff', '#2a6cafff', '#2b6db0ff', '#2c6db0ff', '#2d6eb0ff', '#2e6fb1ff', '#2e6fb1ff', '#2f70b1ff', '#3070b2ff', '#3171b2ff', '#3272b2ff', '#3372b3ff', '#3473b3ff', '#3473b3ff', '#3574b3ff', '#3674b4ff', '#3775b4ff', '#3876b4ff', '#3976b5ff', '#3a77b5ff', '#3a77b5ff', '#3b78b6ff', '#3c79b6ff', '#3d79b6ff', '#3e7ab6ff', '#3f7ab7ff', '#407bb7ff', '#407bb7ff', '#417cb8ff', '#427db8ff', '#437db8ff', '#447eb9ff', '#457eb9ff', '#467fb9ff', '#4780b9ff', '#4780baff', '#4881baff', '#4981baff', '#4a82bbff', '#4b82bbff', '#4c83bbff', '#4d84bcff', '#4d84bcff', '#4e85bcff', '#4f85bcff', '#5086bdff', '#5187bdff', '#5287bdff', '#5388beff', '#5388beff', '#5489beff', '#5589bfff', '#568abfff', '#578bbfff', '#588bbfff', '#598cc0ff', '#598cc0ff', '#5a8dc0ff', '#5b8ec1ff', '#5c8ec1ff', '#5d8fc1ff', '#5e8fc2ff', '#5f90c2ff', '#5f90c2ff', '#6091c3ff', '#6192c3ff', '#6292c3ff', '#6393c3ff', '#6493c4ff', '#6594c4ff', '#6695c4ff', '#6695c5ff', '#6796c5ff', '#6896c5ff', '#6997c6ff', '#6a97c6ff', '#6b98c6ff', '#6c99c6ff', '#6c99c7ff', '#6d9ac7ff', '#6e9ac7ff', '#6f9bc8ff', '#709cc8ff', '#719cc8ff', '#729dc9ff', '#729dc9ff', '#739ec9ff', '#749ec9ff', '#759fcaff', '#76a0caff', '#77a0caff', '#78a1cbff', '#78a1cbff', '#79a2cbff', '#7aa3ccff', '#7ba3ccff', '#7ca4ccff', '#7da4ccff', '#7ea5cdff', '#7ea5cdff', '#7fa6cdff', '#80a7ceff', '#81a7ceff', '#82a8ceff', '#83a8cfff', '#84a9cfff', '#85aacfff', '#85aacfff', '#86abd0ff', '#87abd0ff', '#88acd0ff', '#89acd1ff', '#8aadd1ff', '#8baed1ff', '#8baed2ff', '#8cafd2ff', '#8dafd2ff', '#8eb0d3ff', '#8fb1d3ff', '#90b1d3ff', '#91b2d3ff', '#91b2d4ff', '#92b3d4ff', '#93b3d4ff', '#94b4d5ff', '#95b5d5ff', '#96b5d5ff', '#97b6d6ff', '#97b6d6ff', '#98b7d6ff', '#99b8d6ff', '#9ab8d7ff', '#9bb9d7ff', '#9cb9d7ff', '#9dbad8ff', '#9dbad8ff', '#9ebbd8ff', '#9fbcd9ff', '#a0bcd9ff', '#a1bdd9ff', '#a2bdd9ff', '#a3bedaff', '#a4bfdaff', '#a4bfdaff', '#a5c0dbff', '#a6c0dbff', '#a7c1dbff', '#a8c2dcff', '#a9c2dcff', '#aac3dcff', '#aac3dcff', '#abc4ddff', '#acc4ddff', '#adc5ddff', '#aec6deff', '#afc6deff', '#b0c7deff', '#b0c7dfff', '#b1c8dfff', '#b2c9dfff', '#b3c9dfff', '#b4cae0ff', '#b5cae0ff', '#b6cbe0ff', '#b6cbe1ff', '#b7cce1ff', '#b8cde1ff', '#b9cde2ff', '#bacee2ff', '#bbcee2ff', '#bccfe2ff', '#bcd0e3ff', '#bdd0e3ff', '#bed1e3ff', '#bfd1e4ff', '#c0d2e4ff', '#c1d2e4ff', '#c2d3e5ff', '#c3d4e5ff', '#c3d4e5ff', '#c4d5e6ff', '#c5d5e6ff', '#c6d6e6ff', '#c7d7e6ff', '#c8d7e7ff', '#c9d8e7ff', '#c9d8e7ff', '#cad9e8ff', '#cbd9e8ff', '#ccdae8ff', '#cddbe9ff', '#cedbe9ff', '#cfdce9ff', '#cfdce9ff', '#d0ddeaff', '#d1deeaff', '#d2deeaff', '#d3dfebff', '#d4dfebff', '#d5e0ebff', '#d5e0ecff', '#d6e1ecff', '#d7e2ecff', '#d8e2ecff', '#d9e3edff', '#dae3edff', '#dbe4edff', '#dbe5eeff', '#dce5eeff', '#dde6eeff', '#dee6efff', '#dfe7efff', '#e0e7efff', '#e1e8efff', '#e2e9f0ff', '#e2e9f0ff', '#e3eaf0ff', '#e4eaf1ff', '#e5ebf1ff', '#e6ecf1ff', '#e7ecf2ff', '#e8edf2ff', '#e8edf2ff', '#e9eef2ff', '#eaeef3ff', '#ebeff3ff', '#ecf0f3ff', '#edf0f4ff', '#eef1f4ff', '#eef1f4ff', '#eff2f5ff', '#f0f3f5ff', '#f1f3f5ff', '#f2f4f6ff', '#f3f4f6ff', '#f4f5f6ff', '#f4f5f6ff', '#f5f6f7ff', '#f6f7f7ff', '#f7f7f7ff', '#f7f7f7ff', '#f7f6f6ff', '#f7f5f5ff', '#f6f4f5ff', '#f6f3f4ff', '#f6f3f3ff', '#f6f2f2ff', '#f5f1f1ff', '#f5f0f0ff', '#f5eff0ff', '#f5eeefff', '#f4edeeff', '#f4ecedff', '#f4ebecff', '#f3eaecff', '#f3eaebff', '#f3e9eaff', '#f3e8e9ff', '#f2e7e8ff', '#f2e6e7ff', '#f2e5e7ff', '#f1e4e6ff', '#f1e3e5ff', '#f1e2e4ff', '#f1e1e3ff', '#f0e1e3ff', '#f0e0e2ff', '#f0dfe1ff', '#f0dee0ff', '#efdddfff', '#efdcdeff', '#efdbdeff', '#eedaddff', '#eed9dcff', '#eed9dbff', '#eed8daff', '#edd7daff', '#edd6d9ff', '#edd5d8ff', '#edd4d7ff', '#ecd3d6ff', '#ecd2d5ff', '#ecd1d5ff', '#ebd0d4ff', '#ebd0d3ff', '#ebcfd2ff', '#ebced1ff', '#eacdd0ff', '#eaccd0ff', '#eacbcfff', '#e9caceff', '#e9c9cdff', '#e9c8ccff', '#e9c7ccff', '#e8c7cbff', '#e8c6caff', '#e8c5c9ff', '#e8c4c8ff', '#e7c3c7ff', '#e7c2c7ff', '#e7c1c6ff', '#e6c0c5ff', '#e6bfc4ff', '#e6bec3ff', '#e6bec3ff', '#e5bdc2ff', '#e5bcc1ff', '#e5bbc0ff', '#e4babfff', '#e4b9beff', '#e4b8beff', '#e4b7bdff', '#e3b6bcff', '#e3b6bbff', '#e3b5baff', '#e3b4b9ff', '#e2b3b9ff', '#e2b2b8ff', '#e2b1b7ff', '#e1b0b6ff', '#e1afb5ff', '#e1aeb5ff', '#e1adb4ff', '#e0adb3ff', '#e0acb2ff', '#e0abb1ff', '#dfaab0ff', '#dfa9b0ff', '#dfa8afff', '#dfa7aeff', '#dea6adff', '#dea5acff', '#dea4acff', '#dea4abff', '#dda3aaff', '#dda2a9ff', '#dda1a8ff', '#dca0a7ff', '#dc9fa7ff', '#dc9ea6ff', '#dc9da5ff', '#db9ca4ff', '#db9ba3ff', '#db9ba3ff', '#da9aa2ff', '#da99a1ff', '#da98a0ff', '#da979fff', '#d9969eff', '#d9959eff', '#d9949dff', '#d9939cff', '#d8939bff', '#d8929aff', '#d89199ff', '#d79099ff', '#d78f98ff', '#d78e97ff', '#d78d96ff', '#d68c95ff', '#d68b95ff', '#d68a94ff', '#d58a93ff', '#d58992ff', '#d58891ff', '#d58790ff', '#d48690ff', '#d4858fff', '#d4848eff', '#d4838dff', '#d3828cff', '#d3818cff', '#d3818bff', '#d2808aff', '#d27f89ff', '#d27e88ff', '#d27d87ff', '#d17c87ff', '#d17b86ff', '#d17a85ff', '#d07984ff', '#d07983ff', '#d07882ff', '#d07782ff', '#cf7681ff', '#cf7580ff', '#cf747fff', '#cf737eff', '#ce727eff', '#ce717dff', '#ce707cff', '#cd707bff', '#cd6f7aff', '#cd6e79ff', '#cd6d79ff', '#cc6c78ff', '#cc6b77ff', '#cc6a76ff', '#cb6975ff', '#cb6875ff', '#cb6774ff', '#cb6773ff', '#ca6672ff', '#ca6571ff', '#ca6470ff', '#ca6370ff', '#c9626fff', '#c9616eff', '#c9606dff', '#c85f6cff', '#c85e6cff', '#c85e6bff', '#c85d6aff', '#c75c69ff', '#c75b68ff', '#c75a67ff', '#c65967ff', '#c65866ff', '#c65765ff', '#c65664ff', '#c55663ff', '#c55562ff', '#c55462ff', '#c55361ff', '#c45260ff', '#c4515fff', '#c4505eff', '#c34f5eff', '#c34e5dff', '#c34d5cff', '#c34d5bff', '#c24c5aff', '#c24b59ff', '#c24a59ff', '#c14958ff', '#c14857ff', '#c14756ff', '#c14655ff', '#c04555ff', '#c04454ff', '#c04453ff', '#c04352ff', '#bf4251ff', '#bf4150ff', '#bf4050ff', '#be3f4fff', '#be3e4eff', '#be3d4dff', '#be3c4cff', '#bd3b4cff', '#bd3b4bff', '#bd3a4aff', '#bc3949ff', '#bc3848ff', '#bc3747ff', '#bc3647ff', '#bb3546ff', '#bb3445ff', '#bb3344ff', '#bb3343ff', '#ba3242ff', '#ba3142ff', '#ba3041ff', '#b92f40ff', '#b92e3fff', '#b92d3eff', '#b92c3eff', '#b82b3dff', '#b82a3cff', '#b82a3bff', '#b7293aff', '#b72839ff', '#b72739ff', '#b72638ff', '#b62537ff', '#b62436ff', '#b62335ff', '#b62235ff', '#b52134ff', '#b52133ff', '#b52032ff', '#b41f31ff', '#b41e30ff', '#b41d30ff', '#b41c2fff', '#b31b2eff', '#b31a2dff', '#b3192cff', '#b2182bff', '#b2182bff']);
+    
+
+    color_map_664980c3994b5d43b0217a73332969aa.x = d3.scale.linear()
+              .domain([-14.511873692347665, 14.511873692347665])
+              .range([0, 450 - 50]);
+
+    color_map_664980c3994b5d43b0217a73332969aa.legend = L.control({position: 'topright'});
+    color_map_664980c3994b5d43b0217a73332969aa.legend.onAdd = function (map) {var div = L.DomUtil.create('div', 'legend'); return div};
+    color_map_664980c3994b5d43b0217a73332969aa.legend.addTo(map_56b22e41310b50ee995526146138f48d);
+
+    color_map_664980c3994b5d43b0217a73332969aa.xAxis = d3.svg.axis()
+        .scale(color_map_664980c3994b5d43b0217a73332969aa.x)
+        .orient("top")
+        .tickSize(1)
+        .tickValues([-14.511873692347665, 0.0, 14.511873692347665]);
+
+    color_map_664980c3994b5d43b0217a73332969aa.svg = d3.select(".legend.leaflet-control").append("svg")
+        .attr("id", 'legend')
+        .attr("width", 450)
+        .attr("height", 40);
+
+    color_map_664980c3994b5d43b0217a73332969aa.g = color_map_664980c3994b5d43b0217a73332969aa.svg.append("g")
+        .attr("class", "key")
+        .attr("fill", "black")
+        .attr("transform", "translate(25,16)");
+
+    color_map_664980c3994b5d43b0217a73332969aa.g.selectAll("rect")
+        .data(color_map_664980c3994b5d43b0217a73332969aa.color.range().map(function(d, i) {
+          return {
+            x0: i ? color_map_664980c3994b5d43b0217a73332969aa.x(color_map_664980c3994b5d43b0217a73332969aa.color.domain()[i - 1]) : color_map_664980c3994b5d43b0217a73332969aa.x.range()[0],
+            x1: i < color_map_664980c3994b5d43b0217a73332969aa.color.domain().length ? color_map_664980c3994b5d43b0217a73332969aa.x(color_map_664980c3994b5d43b0217a73332969aa.color.domain()[i]) : color_map_664980c3994b5d43b0217a73332969aa.x.range()[1],
+            z: d
+          };
+        }))
+      .enter().append("rect")
+        .attr("height", 40 - 30)
+        .attr("x", function(d) { return d.x0; })
+        .attr("width", function(d) { return d.x1 - d.x0; })
+        .style("fill", function(d) { return d.z; });
+
+    color_map_664980c3994b5d43b0217a73332969aa.g.call(color_map_664980c3994b5d43b0217a73332969aa.xAxis).append("text")
+        .attr("class", "caption")
+        .attr("y", 21)
+        .attr("fill", "black")
+        .text("Price per m\u00b2 vs. average of the 1500 m circle (%)  \u00b7  blue = cheaper, red = more expensive");
+    
+            var layer_control_655ad6f503adcd4fd48265c2203f658a_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_87425782e4c0d1cd84bbee44fedebb6c,
+                    "Light streets" : tile_layer_1f0b7c91054a5bac3b2dc6313a5636f9,
+                    "Satellite" : tile_layer_048bb280ed8b6d3f05b2aca2976202c4,
+                },
+                overlays :  {
+                    "Station rings" : feature_group_91e328c2cda22e55d7dffa9809c5e5ff,
+                },
+            };
+            let layer_control_655ad6f503adcd4fd48265c2203f658a = L.control.layers(
+                layer_control_655ad6f503adcd4fd48265c2203f658a_layers.base_layers,
+                layer_control_655ad6f503adcd4fd48265c2203f658a_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_56b22e41310b50ee995526146138f48d);
+
+        
+</script>
+</html>
