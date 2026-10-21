@@ -1,0 +1,2472 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_04421eb5f34275df991b16f73e8d842d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_04421eb5f34275df991b16f73e8d842d" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_04421eb5f34275df991b16f73e8d842d = L.map(
+                "map_04421eb5f34275df991b16f73e8d842d",
+                {
+                    center: [50.835, 4.36],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_04421eb5f34275df991b16f73e8d842d);
+
+            
+
+        
+    
+            var tile_layer_092a6e1699f3b86636b2fb10943e9ff4 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_092a6e1699f3b86636b2fb10943e9ff4.addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            var feature_group_8c43ab52672d798f6e36c28d5ed00535 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_410ae88f4d01650dc5d91d9734d31149 = L.circle(
+                [50.8428486165, 4.380023586],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#9fc04eff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_410ae88f4d01650dc5d91d9734d31149.bindTooltip(
+                `<div>
+                     Brussel-Schuman · 1000-1500 m · +7.0% vs 1500 m average · €4,807/m² vs €4,494/m² · n=825
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_0c30b48612931b2578c605290852e63f = L.circle(
+                [50.8659965771, 4.3341385832],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fbca51ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_0c30b48612931b2578c605290852e63f.bindTooltip(
+                `<div>
+                     Simonis · 1000-1500 m · -1.7% vs 1500 m average · €2,792/m² vs €2,839/m² · n=892
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_59f89323652f9527e253ec120b106194 = L.circle(
+                [50.8358008275, 4.3360524665],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a6c14eff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_59f89323652f9527e253ec120b106194.bindTooltip(
+                `<div>
+                     Brussel-Zuid · 1000-1500 m · +6.5% vs 1500 m average · €3,605/m² vs €3,385/m² · n=2641
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_65855d96b13fe4f5f0a50dd9797185b6 = L.circle(
+                [50.8192015862, 4.4043571324],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ed803bff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_65855d96b13fe4f5f0a50dd9797185b6.bindTooltip(
+                `<div>
+                     Delta · 1000-1500 m · -7.8% vs 1500 m average · €4,101/m² vs €4,451/m² · n=710
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_ccbbc7b479a77dad7c5cf06fca9b0b61 = L.circle(
+                [50.7935862121, 4.3604295461],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b3c64fff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_ccbbc7b479a77dad7c5cf06fca9b0b61.bindTooltip(
+                `<div>
+                     Sint-Job · 1000-1500 m · +5.5% vs 1500 m average · €4,819/m² vs €4,566/m² · n=563
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_e9f5b99147bed8615cd5d8a307724880 = L.circle(
+                [50.8812045751, 4.332923411],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f7b64bff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_e9f5b99147bed8615cd5d8a307724880.bindTooltip(
+                `<div>
+                     Jette · 1000-1500 m · -3.3% vs 1500 m average · €2,850/m² vs €2,948/m² · n=1544
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_dce66d16cd05489b1b6fca1eebc83f97 = L.circle(
+                [50.8096682131, 4.3984131821],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f8db56ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_dce66d16cd05489b1b6fca1eebc83f97.bindTooltip(
+                `<div>
+                     Arcaden · 1000-1500 m · +0.5% vs 1500 m average · €4,404/m² vs €4,381/m² · n=16
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_7fc9cd140e2bf2ed18d26f8f21b2a63f = L.circle(
+                [50.8213075585, 4.3904987196],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b7c750ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_7fc9cd140e2bf2ed18d26f8f21b2a63f.bindTooltip(
+                `<div>
+                     Etterbeek · 1000-1500 m · +5.2% vs 1500 m average · €4,802/m² vs €4,563/m² · n=1059
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_4fc45ce86ce931bac0d44ee550ca7378 = L.circle(
+                [50.7961257547, 4.3738989506],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f0d955ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_4fc45ce86ce931bac0d44ee550ca7378.bindTooltip(
+                `<div>
+                     Diesdelle · 1000-1500 m · +1.1% vs 1500 m average · €4,673/m² vs €4,621/m² · n=316
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_2a94b19a33aedc73d0faa30429787be9 = L.circle(
+                [50.8019518882, 4.3936139777],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fbc650ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_2a94b19a33aedc73d0faa30429787be9.bindTooltip(
+                `<div>
+                     Boondaal · 1000-1500 m · -1.9% vs 1500 m average · €4,321/m² vs €4,406/m² · n=22
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_7d740906f2f6cba13cc09110292af824 = L.circle(
+                [50.8730336798, 4.2907473424],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fed855ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_7d740906f2f6cba13cc09110292af824.bindTooltip(
+                `<div>
+                     Sint-Agatha-Berchem · 1000-1500 m · -0.4% vs 1500 m average · €2,962/m² vs €2,975/m² · n=1659
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_f6c52de444222af792f2947ad2a6249f = L.circle(
+                [50.8388378168, 4.3739724503],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f8bb4cff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_f6c52de444222af792f2947ad2a6249f.bindTooltip(
+                `<div>
+                     Brussel-Luxemburg · 1000-1500 m · -2.9% vs 1500 m average · €4,811/m² vs €4,956/m² · n=438
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_efff15f0f4a9ff186892b27f84035b37 = L.circle(
+                [50.8097105893, 4.3998533396],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ee893dff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_efff15f0f4a9ff186892b27f84035b37.bindTooltip(
+                `<div>
+                     Watermaal · 1000-1500 m · -7.1% vs 1500 m average · €3,636/m² vs €3,915/m² · n=48
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_22ea8220a3e3f3e040c3e35a22d184ff = L.circle(
+                [50.8179188892, 4.2915393541],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9bd4dff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_22ea8220a3e3f3e040c3e35a22d184ff.bindTooltip(
+                `<div>
+                     Anderlecht · 1000-1500 m · -2.8% vs 1500 m average · €2,908/m² vs €2,991/m² · n=1635
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_5181c0e23c14f81d9a84e5df039da92d = L.circle(
+                [50.8310122984, 4.3785991396],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e3d554ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_5181c0e23c14f81d9a84e5df039da92d.bindTooltip(
+                `<div>
+                     Mouterij · 1000-1500 m · +2.1% vs 1500 m average · €4,727/m² vs €4,631/m² · n=2488
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_c09a8f77d6f80e6eba6548fd3e3d5639 = L.circle(
+                [50.859599597, 4.3612523188],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f8bb4cff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_c09a8f77d6f80e6eba6548fd3e3d5639.bindTooltip(
+                `<div>
+                     Brussel-Noord · 1000-1500 m · -2.9% vs 1500 m average · €3,652/m² vs €3,763/m² · n=1888
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_1692a4c42692dc0f84d0eba334195789 = L.circle(
+                [50.8888708957, 4.4200308391],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9bc4dff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_1692a4c42692dc0f84d0eba334195789.bindTooltip(
+                `<div>
+                     Haren · 1000-1500 m · -2.8% vs 1500 m average · €3,176/m² vs €3,267/m² · n=11
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_133404dccfb39b806548e9bf37cb066f = L.circle(
+                [50.8024854877, 4.3237781721],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a9641ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_133404dccfb39b806548e9bf37cb066f.bindTooltip(
+                `<div>
+                     Ukkel-Stalle · 1000-1500 m · +16.8% vs 1500 m average · €4,923/m² vs €4,215/m² · n=894
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_2911cf867493566bc4aa4e5846966ed8 = L.circle(
+                [50.8520560691, 4.3228172673],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f6da56ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_2911cf867493566bc4aa4e5846966ed8.bindTooltip(
+                `<div>
+                     Brussel-West · 1000-1500 m · +0.7% vs 1500 m average · €2,730/m² vs €2,711/m² · n=3387
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_ab6310ccf11bfd1cb01fc1871afd5874 = L.circle(
+                [50.8102003361, 4.3209811537],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#adc44fff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_ab6310ccf11bfd1cb01fc1871afd5874.bindTooltip(
+                `<div>
+                     Vorst-Oost · 1000-1500 m · +6.0% vs 1500 m average · €3,633/m² vs €3,428/m² · n=1404
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_3f15f4e5717278992efb4a7a05b5edf3 = L.circle(
+                [50.8517801817, 4.3622197603],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dad253ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_3f15f4e5717278992efb4a7a05b5edf3.bindTooltip(
+                `<div>
+                     Brussel-Congres · 1000-1500 m · +2.7% vs 1500 m average · €4,255/m² vs €4,144/m² · n=300
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_357d22650110799c50554036c644bab4 = L.circle(
+                [50.8682065671, 4.4013550625],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b1c54fff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_357d22650110799c50554036c644bab4.bindTooltip(
+                `<div>
+                     Evere · 1000-1500 m · +5.7% vs 1500 m average · €3,811/m² vs €3,606/m² · n=922
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_7b49090e069a3f5d7153756fb64cb9f6 = L.circle(
+                [50.8786926685, 4.3784315242],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbcd52ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_7b49090e069a3f5d7153756fb64cb9f6.bindTooltip(
+                `<div>
+                     Schaarbeek · 1000-1500 m · +3.8% vs 1500 m average · €3,351/m² vs €3,229/m² · n=1221
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_5b801395ddd349e8e4c2f790df033940 = L.circle(
+                [50.8547570077, 4.3942742089],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c2ca51ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_5b801395ddd349e8e4c2f790df033940.bindTooltip(
+                `<div>
+                     Meiser · 1000-1500 m · +4.5% vs 1500 m average · €3,805/m² vs €3,642/m² · n=2374
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_94959f2d8cbb912b28b2d1f851d6cfd9 = L.circle(
+                [50.8453110184, 4.3567583179],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a646ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_94959f2d8cbb912b28b2d1f851d6cfd9.bindTooltip(
+                `<div>
+                     Brussel-Centraal · 1000-1500 m · -4.6% vs 1500 m average · €4,503/m² vs €4,722/m² · n=1239
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_e81e2e97889ae07e0a0d2997dda088c1 = L.circle(
+                [50.7922144942, 4.3317459655],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f19641ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_e81e2e97889ae07e0a0d2997dda088c1.bindTooltip(
+                `<div>
+                     Ukkel-Kalevoet · 1000-1500 m · -6.0% vs 1500 m average · €3,914/m² vs €4,164/m² · n=158
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_dd0c08333f766b066553398f635c6134 = L.circle(
+                [50.8794398303, 4.3485140011],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f09340ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_dd0c08333f766b066553398f635c6134.bindTooltip(
+                `<div>
+                     Bockstael · 1000-1500 m · -6.3% vs 1500 m average · €2,754/m² vs €2,939/m² · n=52
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_6d986c0ad31f5e77e497a5cf08a9e957 = L.circle(
+                [50.8777742561, 4.4100144047],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f09240ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_6d986c0ad31f5e77e497a5cf08a9e957.bindTooltip(
+                `<div>
+                     Bordet · 500-1000 m · -6.4% vs 1500 m average · €3,391/m² vs €3,623/m² · n=835
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_14fa0727007eb41241e275f7aa15052b = L.circle(
+                [50.8428486165, 4.380023586],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e4552eff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_14fa0727007eb41241e275f7aa15052b.bindTooltip(
+                `<div>
+                     Brussel-Schuman · 500-1000 m · -11.5% vs 1500 m average · €3,977/m² vs €4,494/m² · n=1442
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_813535ae7cd4c13c4ba9ff3cbb7e5627 = L.circle(
+                [50.8659965771, 4.3341385832],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e0d454ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_813535ae7cd4c13c4ba9ff3cbb7e5627.bindTooltip(
+                `<div>
+                     Simonis · 500-1000 m · +2.3% vs 1500 m average · €2,904/m² vs €2,839/m² · n=1837
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_d4424da01e93684998e3e66ea1894dfd = L.circle(
+                [50.8358008275, 4.3360524665],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a746ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_d4424da01e93684998e3e66ea1894dfd.bindTooltip(
+                `<div>
+                     Brussel-Zuid · 500-1000 m · -4.6% vs 1500 m average · €3,228/m² vs €3,385/m² · n=2649
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_df6c13bb88f4f667e1211601ee7980e1 = L.circle(
+                [50.8192015862, 4.4043571324],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9bd4dff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_df6c13bb88f4f667e1211601ee7980e1.bindTooltip(
+                `<div>
+                     Delta · 500-1000 m · -2.8% vs 1500 m average · €4,328/m² vs €4,451/m² · n=976
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_57306cd3a6c5c7568dba6932fff2b726 = L.circle(
+                [50.7935862121, 4.3604295461],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fccd52ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_57306cd3a6c5c7568dba6932fff2b726.bindTooltip(
+                `<div>
+                     Sint-Job · 500-1000 m · -1.4% vs 1500 m average · €4,501/m² vs €4,566/m² · n=602
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_6f6f29470297ffb1f723253cdc44cfa8 = L.circle(
+                [50.8812045751, 4.332923411],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e0d454ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_6f6f29470297ffb1f723253cdc44cfa8.bindTooltip(
+                `<div>
+                     Jette · 500-1000 m · +2.3% vs 1500 m average · €3,015/m² vs €2,948/m² · n=1238
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_23be35504a12613dfbd351a7234e7aab = L.circle(
+                [50.8096682131, 4.3984131821],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f09341ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_23be35504a12613dfbd351a7234e7aab.bindTooltip(
+                `<div>
+                     Arcaden · 500-1000 m · -6.2% vs 1500 m average · €4,107/m² vs €4,381/m² · n=535
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_cea06b18b1dbdfe73c99f3c2af455c87 = L.circle(
+                [50.8213075585, 4.3904987196],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39f44ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_cea06b18b1dbdfe73c99f3c2af455c87.bindTooltip(
+                `<div>
+                     Etterbeek · 500-1000 m · -5.2% vs 1500 m average · €4,324/m² vs €4,563/m² · n=1558
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_3a82d69080ab39b451eac9761f505459 = L.circle(
+                [50.7961257547, 4.3738989506],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f19641ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_3a82d69080ab39b451eac9761f505459.bindTooltip(
+                `<div>
+                     Diesdelle · 500-1000 m · -6.0% vs 1500 m average · €4,343/m² vs €4,621/m² · n=472
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_639bfe47a9d044d8bda30dac7133b7fb = L.circle(
+                [50.8019518882, 4.3936139777],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f09140ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_639bfe47a9d044d8bda30dac7133b7fb.bindTooltip(
+                `<div>
+                     Boondaal · 500-1000 m · -6.4% vs 1500 m average · €4,124/m² vs €4,406/m² · n=326
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_4c3760360495c25889a6e601c8fcd91b = L.circle(
+                [50.8730336798, 4.2907473424],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f2d956ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_4c3760360495c25889a6e601c8fcd91b.bindTooltip(
+                `<div>
+                     Sint-Agatha-Berchem · 500-1000 m · +1.0% vs 1500 m average · €3,004/m² vs €2,975/m² · n=1153
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_d12fa5b226c19653957c83895ec01a27 = L.circle(
+                [50.8388378168, 4.3739724503],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9d253ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_d12fa5b226c19653957c83895ec01a27.bindTooltip(
+                `<div>
+                     Brussel-Luxemburg · 500-1000 m · +2.8% vs 1500 m average · €5,093/m² vs €4,956/m² · n=1751
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_d80d7eff8cdf96a4000239fa564ac80a = L.circle(
+                [50.8097105893, 4.3998533396],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bbc850ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_d80d7eff8cdf96a4000239fa564ac80a.bindTooltip(
+                `<div>
+                     Watermaal · 500-1000 m · +4.9% vs 1500 m average · €4,108/m² vs €3,915/m² · n=137
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_8190663f999d225346f409ea4f8f083a = L.circle(
+                [50.8179188892, 4.2915393541],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b8c750ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_8190663f999d225346f409ea4f8f083a.bindTooltip(
+                `<div>
+                     Anderlecht · 500-1000 m · +5.2% vs 1500 m average · €3,145/m² vs €2,991/m² · n=597
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_f9337cc495b6731457f68d7a01989357 = L.circle(
+                [50.8310122984, 4.3785991396],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dbd253ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_f9337cc495b6731457f68d7a01989357.bindTooltip(
+                `<div>
+                     Mouterij · 500-1000 m · +2.6% vs 1500 m average · €4,752/m² vs €4,631/m² · n=3507
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_5795079e536b3448b615638aaedf4159 = L.circle(
+                [50.859599597, 4.3612523188],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cacd52ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_5795079e536b3448b615638aaedf4159.bindTooltip(
+                `<div>
+                     Brussel-Noord · 500-1000 m · +3.9% vs 1500 m average · €3,910/m² vs €3,763/m² · n=4012
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_f5ec3ff06c5bbe8db2e9d8afd2d2e741 = L.circle(
+                [50.8888708957, 4.4200308391],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#93bc4cff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_f5ec3ff06c5bbe8db2e9d8afd2d2e741.bindTooltip(
+                `<div>
+                     Haren · 500-1000 m · +7.9% vs 1500 m average · €3,524/m² vs €3,267/m² · n=28
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_c1b4d21adfd77021f30b6e3d980faf8b = L.circle(
+                [50.8024854877, 4.3237781721],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f09140ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_c1b4d21adfd77021f30b6e3d980faf8b.bindTooltip(
+                `<div>
+                     Ukkel-Stalle · 500-1000 m · -6.5% vs 1500 m average · €3,942/m² vs €4,215/m² · n=1299
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_3d7f629f04e639977eeac203bab1ee82 = L.circle(
+                [50.8520560691, 4.3228172673],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fcce52ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_3d7f629f04e639977eeac203bab1ee82.bindTooltip(
+                `<div>
+                     Brussel-West · 500-1000 m · -1.3% vs 1500 m average · €2,676/m² vs €2,711/m² · n=2683
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_5d788bf242e0d1fe767a8e2af95a21bb = L.circle(
+                [50.8102003361, 4.3209811537],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fccc51ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_5d788bf242e0d1fe767a8e2af95a21bb.bindTooltip(
+                `<div>
+                     Vorst-Oost · 500-1000 m · -1.5% vs 1500 m average · €3,377/m² vs €3,428/m² · n=1101
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_7548c3547c1ad5fc0629d89992ea86b6 = L.circle(
+                [50.8517801817, 4.3622197603],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e86934ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_7548c3547c1ad5fc0629d89992ea86b6.bindTooltip(
+                `<div>
+                     Brussel-Congres · 500-1000 m · -9.8% vs 1500 m average · €3,738/m² vs €4,144/m² · n=1183
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_509e6c0546c9bbcee5e58d83996a8c2a = L.circle(
+                [50.8682065671, 4.4013550625],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f29c43ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_509e6c0546c9bbcee5e58d83996a8c2a.bindTooltip(
+                `<div>
+                     Evere · 500-1000 m · -5.5% vs 1500 m average · €3,407/m² vs €3,606/m² · n=1907
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_48e5f56a388c928fe8e4338bf2b72d63 = L.circle(
+                [50.8786926685, 4.3784315242],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fed755ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_48e5f56a388c928fe8e4338bf2b72d63.bindTooltip(
+                `<div>
+                     Schaarbeek · 500-1000 m · -0.6% vs 1500 m average · €3,211/m² vs €3,229/m² · n=1944
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_4f543da1ead0bc6ebf1519fecbe0a98f = L.circle(
+                [50.8547570077, 4.3942742089],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fed755ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_4f543da1ead0bc6ebf1519fecbe0a98f.bindTooltip(
+                `<div>
+                     Meiser · 500-1000 m · -0.5% vs 1500 m average · €3,623/m² vs €3,642/m² · n=2421
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_e5a41c85ab90e5dbf4166bf1b6df7597 = L.circle(
+                [50.8453110184, 4.3567583179],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d3d053ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_e5a41c85ab90e5dbf4166bf1b6df7597.bindTooltip(
+                `<div>
+                     Brussel-Centraal · 500-1000 m · +3.2% vs 1500 m average · €4,874/m² vs €4,722/m² · n=2147
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_045a6af8b5b1d16c517bf9c96ca71241 = L.circle(
+                [50.7922144942, 4.3317459655],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ccce52ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_045a6af8b5b1d16c517bf9c96ca71241.bindTooltip(
+                `<div>
+                     Ukkel-Kalevoet · 500-1000 m · +3.7% vs 1500 m average · €4,318/m² vs €4,164/m² · n=1598
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_494ec346aa0912389fa972e70391a8fe = L.circle(
+                [50.8715565586, 4.3408637456],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a9c24fff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_494ec346aa0912389fa972e70391a8fe.bindTooltip(
+                `<div>
+                     Thurn en Taxis · 500-1000 m · +6.3% vs 1500 m average · €3,787/m² vs €3,563/m² · n=1973
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_f3c16a5e2a1de0637bef2262c352a319 = L.circle(
+                [50.8794398303, 4.3485140011],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d5d053ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_f3c16a5e2a1de0637bef2262c352a319.bindTooltip(
+                `<div>
+                     Bockstael · 500-1000 m · +3.1% vs 1500 m average · €3,029/m² vs €2,939/m² · n=1010
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_d78feecd71de774851725bcea44eb0be = L.circle(
+                [50.8777742561, 4.4100144047],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fdd253ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_d78feecd71de774851725bcea44eb0be.bindTooltip(
+                `<div>
+                     Bordet · 250-500 m · -0.9% vs 1500 m average · €3,589/m² vs €3,623/m² · n=508
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_efcf84ce67e8ec8aae91204071f98dc3 = L.circle(
+                [50.8428486165, 4.380023586],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a3c14eff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_efcf84ce67e8ec8aae91204071f98dc3.bindTooltip(
+                `<div>
+                     Brussel-Schuman · 250-500 m · +6.7% vs 1500 m average · €4,794/m² vs €4,494/m² · n=1058
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_bd3c6d0c25380081f66ca55e9a797da2 = L.circle(
+                [50.8659965771, 4.3341385832],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fccd52ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_bd3c6d0c25380081f66ca55e9a797da2.bindTooltip(
+                `<div>
+                     Simonis · 250-500 m · -1.4% vs 1500 m average · €2,801/m² vs €2,839/m² · n=743
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_8876d396b4d45ad546007a8023320059 = L.circle(
+                [50.8358008275, 4.3360524665],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ed833cff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_8876d396b4d45ad546007a8023320059.bindTooltip(
+                `<div>
+                     Brussel-Zuid · 250-500 m · -7.6% vs 1500 m average · €3,127/m² vs €3,385/m² · n=679
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_7ad1bbdf3ff1a590d54ed311e2622b50 = L.circle(
+                [50.8192015862, 4.4043571324],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9be4dff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_7ad1bbdf3ff1a590d54ed311e2622b50.bindTooltip(
+                `<div>
+                     Delta · 250-500 m · -2.7% vs 1500 m average · €4,332/m² vs €4,451/m² · n=434
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_75ca1fa0450f63690e3d97e74db3116c = L.circle(
+                [50.7935862121, 4.3604295461],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f7b64bff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_75ca1fa0450f63690e3d97e74db3116c.bindTooltip(
+                `<div>
+                     Sint-Job · 250-500 m · -3.3% vs 1500 m average · €4,413/m² vs €4,566/m² · n=548
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_0b2b7e18ba67f703d8881572e8f97693 = L.circle(
+                [50.8812045751, 4.332923411],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9d153ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_0b2b7e18ba67f703d8881572e8f97693.bindTooltip(
+                `<div>
+                     Jette · 250-500 m · +2.8% vs 1500 m average · €3,031/m² vs €2,948/m² · n=763
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_98956133002769ac70467aaac1c45f05 = L.circle(
+                [50.8096682131, 4.3984131821],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b7c750ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_98956133002769ac70467aaac1c45f05.bindTooltip(
+                `<div>
+                     Arcaden · 250-500 m · +5.2% vs 1500 m average · €4,611/m² vs €4,381/m² · n=189
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_319c268817d8b97a228d2d9dcd735052 = L.circle(
+                [50.8213075585, 4.3904987196],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f8bb4cff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_319c268817d8b97a228d2d9dcd735052.bindTooltip(
+                `<div>
+                     Etterbeek · 250-500 m · -2.9% vs 1500 m average · €4,429/m² vs €4,563/m² · n=380
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_66446c5b68908a6126108eb127db5b9a = L.circle(
+                [50.7961257547, 4.3738989506],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f6ae49ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_66446c5b68908a6126108eb127db5b9a.bindTooltip(
+                `<div>
+                     Diesdelle · 250-500 m · -4.0% vs 1500 m average · €4,436/m² vs €4,621/m² · n=198
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_d98aebe5e5e5a71c11c0a31f7a0bb62c = L.circle(
+                [50.8019518882, 4.3936139777],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e0d454ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_d98aebe5e5e5a71c11c0a31f7a0bb62c.bindTooltip(
+                `<div>
+                     Boondaal · 250-500 m · +2.3% vs 1500 m average · €4,506/m² vs €4,406/m² · n=385
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_e7211d1e2c21350379d03215554746cb = L.circle(
+                [50.8730336798, 4.2907473424],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a345ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_e7211d1e2c21350379d03215554746cb.bindTooltip(
+                `<div>
+                     Sint-Agatha-Berchem · 250-500 m · -4.9% vs 1500 m average · €2,828/m² vs €2,975/m² · n=118
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_83b37514771f40f466e48fde49a68ff5 = L.circle(
+                [50.8388378168, 4.3739724503],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f09040ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_83b37514771f40f466e48fde49a68ff5.bindTooltip(
+                `<div>
+                     Brussel-Luxemburg · 250-500 m · -6.5% vs 1500 m average · €4,632/m² vs €4,956/m² · n=658
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_192fe7fc6ad34d949df5e40e430fda32 = L.circle(
+                [50.8097105893, 4.3998533396],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fbc550ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_192fe7fc6ad34d949df5e40e430fda32.bindTooltip(
+                `<div>
+                     Watermaal · 250-500 m · -2.0% vs 1500 m average · €3,835/m² vs €3,915/m² · n=177
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_460614ff4e3a78b94e5ce144749c6f38 = L.circle(
+                [50.8179188892, 4.2915393541],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e9d43ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_460614ff4e3a78b94e5ce144749c6f38.bindTooltip(
+                `<div>
+                     Anderlecht · 250-500 m · +15.1% vs 1500 m average · €3,443/m² vs €2,991/m² · n=91
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_828993a66fcdee7250be28a4dc6247e4 = L.circle(
+                [50.8310122984, 4.3785991396],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e65f31ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_828993a66fcdee7250be28a4dc6247e4.bindTooltip(
+                `<div>
+                     Mouterij · 250-500 m · -10.7% vs 1500 m average · €4,136/m² vs €4,631/m² · n=1086
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_e2c03b5248e991967e62c1d6c45b54bb = L.circle(
+                [50.859599597, 4.3612523188],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e04328ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_e2c03b5248e991967e62c1d6c45b54bb.bindTooltip(
+                `<div>
+                     Brussel-Noord · 250-500 m · -13.0% vs 1500 m average · €3,272/m² vs €3,763/m² · n=611
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_78d054f08674fc73373b7c1fa587b12e = L.circle(
+                [50.8888708957, 4.4200308391],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffda56ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_78d054f08674fc73373b7c1fa587b12e.bindTooltip(
+                `<div>
+                     Haren · 250-500 m · -0.2% vs 1500 m average · €3,259/m² vs €3,267/m² · n=368
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_36cde7ecb8cf08717de42640d6015fdf = L.circle(
+                [50.8024854877, 4.3237781721],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#eb7a39ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_36cde7ecb8cf08717de42640d6015fdf.bindTooltip(
+                `<div>
+                     Ukkel-Stalle · 250-500 m · -8.4% vs 1500 m average · €3,863/m² vs €4,215/m² · n=716
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_93df277efd0d91384fac914d35eb39a4 = L.circle(
+                [50.8520560691, 4.3228172673],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f6db56ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_93df277efd0d91384fac914d35eb39a4.bindTooltip(
+                `<div>
+                     Brussel-West · 250-500 m · +0.7% vs 1500 m average · €2,729/m² vs €2,711/m² · n=890
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_0efd527011d15bf141a02aa401c7195e = L.circle(
+                [50.8102003361, 4.3209811537],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a747ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_0efd527011d15bf141a02aa401c7195e.bindTooltip(
+                `<div>
+                     Vorst-Oost · 250-500 m · -4.6% vs 1500 m average · €3,272/m² vs €3,428/m² · n=924
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_f9c60803861eaf25472d80df7a25d13f = L.circle(
+                [50.8517801817, 4.3622197603],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e9c43ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_f9c60803861eaf25472d80df7a25d13f.bindTooltip(
+                `<div>
+                     Brussel-Congres · 250-500 m · +15.2% vs 1500 m average · €4,773/m² vs €4,144/m² · n=752
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_40f8128924371a44a987fb7a676f2777 = L.circle(
+                [50.8682065671, 4.4013550625],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#96bd4dff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_40f8128924371a44a987fb7a676f2777.bindTooltip(
+                `<div>
+                     Evere · 250-500 m · +7.6% vs 1500 m average · €3,881/m² vs €3,606/m² · n=462
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_eed40bc1b5805d995b3e98227d12b57a = L.circle(
+                [50.8786926685, 4.3784315242],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f29d44ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_eed40bc1b5805d995b3e98227d12b57a.bindTooltip(
+                `<div>
+                     Schaarbeek · 250-500 m · -5.4% vs 1500 m average · €3,054/m² vs €3,229/m² · n=432
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_03430358477b50d31b29839b3d7d7759 = L.circle(
+                [50.8547570077, 4.3942742089],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f29942ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_03430358477b50d31b29839b3d7d7759.bindTooltip(
+                `<div>
+                     Meiser · 250-500 m · -5.8% vs 1500 m average · €3,432/m² vs €3,642/m² · n=1074
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_6063f4d7ce926a1ff15331504b270641 = L.circle(
+                [50.8453110184, 4.3567583179],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9c04eff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_6063f4d7ce926a1ff15331504b270641.bindTooltip(
+                `<div>
+                     Brussel-Centraal · 250-500 m · -2.5% vs 1500 m average · €4,604/m² vs €4,722/m² · n=497
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_9a48833301a7519939285c55ad08ad51 = L.circle(
+                [50.7922144942, 4.3317459655],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fbc750ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_9a48833301a7519939285c55ad08ad51.bindTooltip(
+                `<div>
+                     Ukkel-Kalevoet · 250-500 m · -1.9% vs 1500 m average · €4,085/m² vs €4,164/m² · n=495
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_465bf6e37d96db6523e0e1d836d887f1 = L.circle(
+                [50.8715565586, 4.3408637456],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d7191cff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_465bf6e37d96db6523e0e1d836d887f1.bindTooltip(
+                `<div>
+                     Thurn en Taxis · 250-500 m · -23.8% vs 1500 m average · €2,715/m² vs €3,563/m² · n=461
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_6855b905227dbe78df29f69044a2ca98 = L.circle(
+                [50.8794398303, 4.3485140011],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffd956ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_6855b905227dbe78df29f69044a2ca98.bindTooltip(
+                `<div>
+                     Bockstael · 250-500 m · -0.4% vs 1500 m average · €2,929/m² vs €2,939/m² · n=2902
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_e5d0f85f5b7631ff1003347e1739470a = L.circle(
+                [50.8777742561, 4.4100144047],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#66ae48ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_e5d0f85f5b7631ff1003347e1739470a.bindTooltip(
+                `<div>
+                     Bordet · 0-250 m · +11.1% vs 1500 m average · €4,025/m² vs €3,623/m² · n=528
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_17e5599436a900a97694407f1ac4b202 = L.circle(
+                [50.8428486165, 4.380023586],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a9641ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_17e5599436a900a97694407f1ac4b202.bindTooltip(
+                `<div>
+                     Brussel-Schuman · 0-250 m · +18.9% vs 1500 m average · €5,346/m² vs €4,494/m² · n=201
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_6554bae97d140f869b644eb8b15cbf7f = L.circle(
+                [50.8659965771, 4.3341385832],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f3a145ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_6554bae97d140f869b644eb8b15cbf7f.bindTooltip(
+                `<div>
+                     Simonis · 0-250 m · -5.1% vs 1500 m average · €2,695/m² vs €2,839/m² · n=333
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_b6b3996988280e1b900e778436c6da6b = L.circle(
+                [50.8358008275, 4.3360524665],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#80b64bff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_b6b3996988280e1b900e778436c6da6b.bindTooltip(
+                `<div>
+                     Brussel-Zuid · 0-250 m · +9.2% vs 1500 m average · €3,697/m² vs €3,385/m² · n=32
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_0be7f4f43a1f9540091e59e13f727c08 = L.circle(
+                [50.8192015862, 4.4043571324],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1b9641ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_0be7f4f43a1f9540091e59e13f727c08.bindTooltip(
+                `<div>
+                     Delta · 0-250 m · +16.5% vs 1500 m average · €5,187/m² vs €4,451/m² · n=570
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_2a2118d049fe78a6d68c9aaa73ad8a5c = L.circle(
+                [50.7935862121, 4.3604295461],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f7b54bff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_2a2118d049fe78a6d68c9aaa73ad8a5c.bindTooltip(
+                `<div>
+                     Sint-Job · 0-250 m · -3.4% vs 1500 m average · €4,409/m² vs €4,566/m² · n=127
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_7b4eccdee6e8b911502dfff754f46008 = L.circle(
+                [50.8812045751, 4.332923411],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d7d153ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_7b4eccdee6e8b911502dfff754f46008.bindTooltip(
+                `<div>
+                     Jette · 0-250 m · +2.9% vs 1500 m average · €3,035/m² vs €2,948/m² · n=65
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_3b2c0551aa8061396e4f71f652f94102 = L.circle(
+                [50.8096682131, 4.3984131821],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a9641ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_3b2c0551aa8061396e4f71f652f94102.bindTooltip(
+                `<div>
+                     Arcaden · 0-250 m · +18.4% vs 1500 m average · €5,189/m² vs €4,381/m² · n=127
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_1bc15a7c4a9b40560a8b3c31aa265d19 = L.circle(
+                [50.8213075585, 4.3904987196],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a6c24eff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_1bc15a7c4a9b40560a8b3c31aa265d19.bindTooltip(
+                `<div>
+                     Etterbeek · 0-250 m · +6.5% vs 1500 m average · €4,858/m² vs €4,563/m² · n=576
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_91f9da272d8b26c470916d275aa629f6 = L.circle(
+                [50.7961257547, 4.3738989506],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#95bc4dff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_91f9da272d8b26c470916d275aa629f6.bindTooltip(
+                `<div>
+                     Diesdelle · 0-250 m · +7.7% vs 1500 m average · €4,975/m² vs €4,621/m² · n=426
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_174e398d7e8339f4c15dd29d4ac10015 = L.circle(
+                [50.8019518882, 4.3936139777],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c7cc51ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_174e398d7e8339f4c15dd29d4ac10015.bindTooltip(
+                `<div>
+                     Boondaal · 0-250 m · +4.1% vs 1500 m average · €4,587/m² vs €4,406/m² · n=307
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_aa9f285d1343b7208bb473a68a3ea4fd = L.circle(
+                [50.8730336798, 4.2907473424],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#87b84bff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_aa9f285d1343b7208bb473a68a3ea4fd.bindTooltip(
+                `<div>
+                     Sint-Agatha-Berchem · 0-250 m · +8.7% vs 1500 m average · €3,236/m² vs €2,975/m² · n=21
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_c63b28bd1fc2b29e246be629b067bb6d = L.circle(
+                [50.8388378168, 4.3739724503],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c2ca51ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_c63b28bd1fc2b29e246be629b067bb6d.bindTooltip(
+                `<div>
+                     Brussel-Luxemburg · 0-250 m · +4.5% vs 1500 m average · €5,177/m² vs €4,956/m² · n=170
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_0782b97d645897af99ac2d5749f16a1f = L.circle(
+                [50.8097105893, 4.3998533396],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fbdc56ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_0782b97d645897af99ac2d5749f16a1f.bindTooltip(
+                `<div>
+                     Watermaal · 0-250 m · +0.3% vs 1500 m average · €3,929/m² vs €3,915/m² · n=82
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_95e9061d5581fbb2e623d982c9c8cbf9 = L.circle(
+                [50.8179188892, 4.2915393541],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e4d554ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_95e9061d5581fbb2e623d982c9c8cbf9.bindTooltip(
+                `<div>
+                     Anderlecht · 0-250 m · +2.0% vs 1500 m average · €3,050/m² vs €2,991/m² · n=35
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_4f1aefb4da268340cb8e9a39a1820cff = L.circle(
+                [50.8310122984, 4.3785991396],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e5592fff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_4f1aefb4da268340cb8e9a39a1820cff.bindTooltip(
+                `<div>
+                     Mouterij · 0-250 m · -11.2% vs 1500 m average · €4,114/m² vs €4,631/m² · n=243
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_0a5404cd4870397d1a46bcdc68b505e5 = L.circle(
+                [50.859599597, 4.3612523188],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d7191cff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_0a5404cd4870397d1a46bcdc68b505e5.bindTooltip(
+                `<div>
+                     Brussel-Noord · 0-250 m · -23.0% vs 1500 m average · €2,900/m² vs €3,763/m² · n=92
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_f29a55539b122abfee04e64f36897366 = L.circle(
+                [50.8888708957, 4.4200308391],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fccd52ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_f29a55539b122abfee04e64f36897366.bindTooltip(
+                `<div>
+                     Haren · 0-250 m · -1.3% vs 1500 m average · €3,223/m² vs €3,267/m² · n=75
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_93330f138fbef953d203e2ae1172d854 = L.circle(
+                [50.8024854877, 4.3237781721],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e86c35ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_93330f138fbef953d203e2ae1172d854.bindTooltip(
+                `<div>
+                     Ukkel-Stalle · 0-250 m · -9.6% vs 1500 m average · €3,812/m² vs €4,215/m² · n=64
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_942a354f33e234f4e6c950c5eb9f1c06 = L.circle(
+                [50.8520560691, 4.3228172673],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a1c04eff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_942a354f33e234f4e6c950c5eb9f1c06.bindTooltip(
+                `<div>
+                     Brussel-West · 0-250 m · +6.8% vs 1500 m average · €2,896/m² vs €2,711/m² · n=66
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_a34681d0983fffdb289c223a00a780c5 = L.circle(
+                [50.8102003361, 4.3209811537],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76533ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_a34681d0983fffdb289c223a00a780c5.bindTooltip(
+                `<div>
+                     Vorst-Oost · 0-250 m · -10.2% vs 1500 m average · €3,080/m² vs €3,428/m² · n=245
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_70ca7d974b1ca9d1ce921b308d6b5172 = L.circle(
+                [50.8517801817, 4.3622197603],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f8b84cff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_70ca7d974b1ca9d1ce921b308d6b5172.bindTooltip(
+                `<div>
+                     Brussel-Congres · 0-250 m · -3.1% vs 1500 m average · €4,014/m² vs €4,144/m² · n=205
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_12120998a9302167a11ba746acc0a92f = L.circle(
+                [50.8682065671, 4.4013550625],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#229942ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_12120998a9302167a11ba746acc0a92f.bindTooltip(
+                `<div>
+                     Evere · 0-250 m · +16.0% vs 1500 m average · €4,184/m² vs €3,606/m² · n=109
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_eff4e5311e364c3d7843b1ae653d6927 = L.circle(
+                [50.8786926685, 4.3784315242],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e04429ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_eff4e5311e364c3d7843b1ae653d6927.bindTooltip(
+                `<div>
+                     Schaarbeek · 0-250 m · -12.9% vs 1500 m average · €2,812/m² vs €3,229/m² · n=91
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_e9d7739e9be0b8cb2603e43d81a50f7e = L.circle(
+                [50.8547570077, 4.3942742089],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e86c35ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_e9d7739e9be0b8cb2603e43d81a50f7e.bindTooltip(
+                `<div>
+                     Meiser · 0-250 m · -9.6% vs 1500 m average · €3,293/m² vs €3,642/m² · n=322
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_bd6d5d375fd0aa661e1c69ef371bea57 = L.circle(
+                [50.8453110184, 4.3567583179],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f0d955ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_bd6d5d375fd0aa661e1c69ef371bea57.bindTooltip(
+                `<div>
+                     Brussel-Centraal · 0-250 m · +1.1% vs 1500 m average · €4,774/m² vs €4,722/m² · n=103
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_bbbc00ee2729b8b674b6553e6a86867e = L.circle(
+                [50.7922144942, 4.3317459655],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f09441ff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_bbbc00ee2729b8b674b6553e6a86867e.bindTooltip(
+                `<div>
+                     Ukkel-Kalevoet · 0-250 m · -6.2% vs 1500 m average · €3,905/m² vs €4,164/m² · n=643
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_b6b52b1b996d7c7c50450ace938cbba1 = L.circle(
+                [50.8715565586, 4.3408637456],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d7191cff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_b6b52b1b996d7c7c50450ace938cbba1.bindTooltip(
+                `<div>
+                     Thurn en Taxis · 0-250 m · -26.8% vs 1500 m average · €2,609/m² vs €3,563/m² · n=53
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_8246de5203f57692c193d3f88d724851 = L.circle(
+                [50.8794398303, 4.3485140011],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e4562eff", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 250, "stroke": true, "weight": 0.6}
+            ).addTo(feature_group_8c43ab52672d798f6e36c28d5ed00535);
+        
+    
+            circle_8246de5203f57692c193d3f88d724851.bindTooltip(
+                `<div>
+                     Bockstael · 0-250 m · -11.5% vs 1500 m average · €2,602/m² vs €2,939/m² · n=149
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_8c43ab52672d798f6e36c28d5ed00535.addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            var circle_marker_af1bdcb130b56a3286340dd42db94008 = L.circleMarker(
+                [50.8777742561, 4.4100144047],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_af1bdcb130b56a3286340dd42db94008.bindTooltip(
+                `<div>
+                     Bordet
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1debc21f41c86e42a87ccb164a483f7b = L.circleMarker(
+                [50.8428486165, 4.380023586],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_1debc21f41c86e42a87ccb164a483f7b.bindTooltip(
+                `<div>
+                     Brussel-Schuman
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_138273237f49a3ef30590df5c061a6b0 = L.circleMarker(
+                [50.8659965771, 4.3341385832],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_138273237f49a3ef30590df5c061a6b0.bindTooltip(
+                `<div>
+                     Simonis
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ab0b82f69b517ff9d148823b1c36f594 = L.circleMarker(
+                [50.8358008275, 4.3360524665],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_ab0b82f69b517ff9d148823b1c36f594.bindTooltip(
+                `<div>
+                     Brussel-Zuid
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3dd541553dd562848c565d07cfec5055 = L.circleMarker(
+                [50.8192015862, 4.4043571324],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_3dd541553dd562848c565d07cfec5055.bindTooltip(
+                `<div>
+                     Delta
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3ae96c9b0cb0ce584a79d52e0dee938a = L.circleMarker(
+                [50.7935862121, 4.3604295461],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_3ae96c9b0cb0ce584a79d52e0dee938a.bindTooltip(
+                `<div>
+                     Sint-Job
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9384c8a5e8bd2580d7b8beca260e51ed = L.circleMarker(
+                [50.8812045751, 4.332923411],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_9384c8a5e8bd2580d7b8beca260e51ed.bindTooltip(
+                `<div>
+                     Jette
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9b147ee740f8fcf2a2d5c3c3a2f8ef20 = L.circleMarker(
+                [50.8096682131, 4.3984131821],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_9b147ee740f8fcf2a2d5c3c3a2f8ef20.bindTooltip(
+                `<div>
+                     Arcaden
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a1abf7da71540ed1f2a70a2017bb2b71 = L.circleMarker(
+                [50.8213075585, 4.3904987196],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_a1abf7da71540ed1f2a70a2017bb2b71.bindTooltip(
+                `<div>
+                     Etterbeek
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ead3b05d673335064ac1b89946d10e4c = L.circleMarker(
+                [50.7961257547, 4.3738989506],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_ead3b05d673335064ac1b89946d10e4c.bindTooltip(
+                `<div>
+                     Diesdelle
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_de560e35be09468b34317e09cda3f0b3 = L.circleMarker(
+                [50.8019518882, 4.3936139777],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_de560e35be09468b34317e09cda3f0b3.bindTooltip(
+                `<div>
+                     Boondaal
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a0501168f0106fe650bfc775ef4e0e18 = L.circleMarker(
+                [50.8730336798, 4.2907473424],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_a0501168f0106fe650bfc775ef4e0e18.bindTooltip(
+                `<div>
+                     Sint-Agatha-Berchem
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a6ca9d63f02d845fd41d9f2b8efd9ef0 = L.circleMarker(
+                [50.8388378168, 4.3739724503],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_a6ca9d63f02d845fd41d9f2b8efd9ef0.bindTooltip(
+                `<div>
+                     Brussel-Luxemburg
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c74877a9e8b4735ed6a1fcb6356fec5d = L.circleMarker(
+                [50.8097105893, 4.3998533396],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_c74877a9e8b4735ed6a1fcb6356fec5d.bindTooltip(
+                `<div>
+                     Watermaal
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_08286cea75801b015ebec3222ffee59f = L.circleMarker(
+                [50.8179188892, 4.2915393541],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_08286cea75801b015ebec3222ffee59f.bindTooltip(
+                `<div>
+                     Anderlecht
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0d5ae96e1189119d56987d8fd2e03b08 = L.circleMarker(
+                [50.8310122984, 4.3785991396],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_0d5ae96e1189119d56987d8fd2e03b08.bindTooltip(
+                `<div>
+                     Mouterij
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_635502bfdf7239c6863c7b8106b4853b = L.circleMarker(
+                [50.859599597, 4.3612523188],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_635502bfdf7239c6863c7b8106b4853b.bindTooltip(
+                `<div>
+                     Brussel-Noord
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f420f7d5b0bdf34c11d0b60a909a440a = L.circleMarker(
+                [50.8888708957, 4.4200308391],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_f420f7d5b0bdf34c11d0b60a909a440a.bindTooltip(
+                `<div>
+                     Haren
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_68d6aaaf5ee5644d83f9a88a587a4769 = L.circleMarker(
+                [50.8024854877, 4.3237781721],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_68d6aaaf5ee5644d83f9a88a587a4769.bindTooltip(
+                `<div>
+                     Ukkel-Stalle
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4011a136229cbcd455c4c3f26e72fca5 = L.circleMarker(
+                [50.8520560691, 4.3228172673],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_4011a136229cbcd455c4c3f26e72fca5.bindTooltip(
+                `<div>
+                     Brussel-West
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_44c1119be106e12d3bc907f4ab8902a1 = L.circleMarker(
+                [50.8102003361, 4.3209811537],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_44c1119be106e12d3bc907f4ab8902a1.bindTooltip(
+                `<div>
+                     Vorst-Oost
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8b8e2082f4e5a1b490bbad29dacbdeb5 = L.circleMarker(
+                [50.8517801817, 4.3622197603],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_8b8e2082f4e5a1b490bbad29dacbdeb5.bindTooltip(
+                `<div>
+                     Brussel-Congres
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_10539e85c76dc885b7aa1eed4702ad12 = L.circleMarker(
+                [50.8682065671, 4.4013550625],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_10539e85c76dc885b7aa1eed4702ad12.bindTooltip(
+                `<div>
+                     Evere
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9f660b1441169491f2814e62bfe7a9f2 = L.circleMarker(
+                [50.8786926685, 4.3784315242],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_9f660b1441169491f2814e62bfe7a9f2.bindTooltip(
+                `<div>
+                     Schaarbeek
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1302a0dd52a66719e87637d35d63e4d0 = L.circleMarker(
+                [50.8547570077, 4.3942742089],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_1302a0dd52a66719e87637d35d63e4d0.bindTooltip(
+                `<div>
+                     Meiser
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_be5f2fc25fb1fec9e2285cc4c4ca2e61 = L.circleMarker(
+                [50.8453110184, 4.3567583179],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_be5f2fc25fb1fec9e2285cc4c4ca2e61.bindTooltip(
+                `<div>
+                     Brussel-Centraal
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d33b1affbf4df215c0c186adf6b3bd36 = L.circleMarker(
+                [50.7922144942, 4.3317459655],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_d33b1affbf4df215c0c186adf6b3bd36.bindTooltip(
+                `<div>
+                     Ukkel-Kalevoet
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3304e75f7a8d4d67c561a06aece3b227 = L.circleMarker(
+                [50.8715565586, 4.3408637456],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_3304e75f7a8d4d67c561a06aece3b227.bindTooltip(
+                `<div>
+                     Thurn en Taxis
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5377fd0fcea6c7d5693b10aef03e3c66 = L.circleMarker(
+                [50.8794398303, 4.3485140011],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+        
+    
+            circle_marker_5377fd0fcea6c7d5693b10aef03e3c66.bindTooltip(
+                `<div>
+                     Bockstael
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+    var color_map_ebd82f57266f6a7332b6556de4167200 = {};
+
+    
+    color_map_ebd82f57266f6a7332b6556de4167200.color = d3.scale.threshold()
+              .domain([-16.62381982757357, -16.55719129119051, -16.49056275480745, -16.42393421842439, -16.35730568204133, -16.290677145658268, -16.224048609275208, -16.157420072892148, -16.090791536509087, -16.024163000126027, -15.957534463742967, -15.890905927359906, -15.824277390976846, -15.757648854593784, -15.691020318210724, -15.624391781827663, -15.557763245444603, -15.491134709061543, -15.424506172678482, -15.357877636295422, -15.291249099912362, -15.224620563529301, -15.157992027146241, -15.09136349076318, -15.02473495438012, -14.95810641799706, -14.891477881614, -14.82484934523094, -14.758220808847879, -14.691592272464819, -14.624963736081758, -14.558335199698698, -14.491706663315636, -14.425078126932576, -14.358449590549515, -14.291821054166455, -14.225192517783395, -14.158563981400334, -14.091935445017274, -14.025306908634214, -13.958678372251153, -13.892049835868093, -13.825421299485033, -13.758792763101972, -13.692164226718912, -13.625535690335852, -13.558907153952791, -13.492278617569731, -13.42565008118667, -13.35902154480361, -13.29239300842055, -13.22576447203749, -13.15913593565443, -13.09250739927137, -13.025878862888309, -12.959250326505249, -12.892621790122188, -12.825993253739128, -12.759364717356068, -12.692736180973005, -12.626107644589947, -12.559479108206887, -12.492850571823826, -12.426222035440764, -12.359593499057704, -12.292964962674645, -12.226336426291583, -12.159707889908523, -12.093079353525463, -12.026450817142402, -11.95982228075934, -11.893193744376282, -11.82656520799322, -11.75993667161016, -11.6933081352271, -11.626679598844039, -11.56005106246098, -11.493422526077918, -11.426793989694858, -11.360165453311797, -11.293536916928737, -11.226908380545677, -11.160279844162616, -11.093651307779556, -11.027022771396496, -10.960394235013435, -10.893765698630375, -10.827137162247315, -10.760508625864254, -10.693880089481194, -10.627251553098134, -10.560623016715073, -10.493994480332013, -10.427365943948953, -10.360737407565892, -10.294108871182832, -10.227480334799772, -10.160851798416711, -10.094223262033651, -10.02759472565059, -9.96096618926753, -9.89433765288447, -9.82770911650141, -9.76108058011835, -9.694452043735287, -9.627823507352229, -9.561194970969169, -9.494566434586106, -9.427937898203048, -9.361309361819986, -9.294680825436926, -9.228052289053865, -9.161423752670805, -9.094795216287745, -9.028166679904684, -8.961538143521624, -8.894909607138564, -8.828281070755503, -8.761652534372441, -8.695023997989383, -8.628395461606322, -8.561766925223262, -8.495138388840202, -8.42850985245714, -8.361881316074081, -8.295252779691019, -8.228624243307959, -8.1619957069249, -8.095367170541838, -8.028738634158778, -7.962110097775719, -7.895481561392657, -7.828853025009597, -7.762224488626536, -7.695595952243476, -7.628967415860416, -7.562338879477355, -7.495710343094295, -7.429081806711235, -7.362453270328174, -7.295824733945112, -7.229196197562054, -7.1625676611789935, -7.095939124795931, -7.029310588412871, -6.9626820520298125, -6.89605351564675, -6.82942497926369, -6.7627964428806315, -6.696167906497571, -6.629539370114509, -6.562910833731449, -6.49628229734839, -6.429653760965328, -6.363025224582268, -6.296396688199209, -6.229768151816147, -6.163139615433087, -6.0965110790500265, -6.029882542666966, -5.963254006283906, -5.896625469900846, -5.829996933517785, -5.763368397134725, -5.696739860751665, -5.6301113243686025, -5.563482787985544, -5.496854251602484, -5.4302257152194215, -5.363597178836363, -5.296968642453303, -5.230340106070241, -5.16371156968718, -5.097083033304122, -5.03045449692106, -4.963825960537999, -4.897197424154941, -4.830568887771879, -4.763940351388818, -4.697311815005758, -4.630683278622698, -4.564054742239637, -4.497426205856577, -4.430797669473515, -4.364169133090456, -4.297540596707396, -4.230912060324334, -4.164283523941275, -4.097654987558215, -4.031026451175155, -3.9643979147920927, -3.897769378409034, -3.831140842025974, -3.7645123056429117, -3.697883769259853, -3.631255232876793, -3.5646266964937308, -3.4979981601106704, -3.431369623727612, -3.36474108734455, -3.2981125509614895, -3.231484014578431, -3.164855478195369, -3.0982269418123085, -3.031598405429248, -2.964969869046188, -2.8983413326631275, -2.8317127962800672, -2.765084259897005, -2.6984557235139466, -2.6318271871308863, -2.565198650747824, -2.4985701143647656, -2.4319415779817053, -2.365313041598643, -2.298684505215583, -2.2320559688325243, -2.1654274324494622, -2.098798896066402, -2.0321703596833434, -1.9655418233002813, -1.898913286917221, -1.8322847505341606, -1.7656562141511003, -1.69902767776804, -1.6323991413849797, -1.5657706050019193, -1.499142068618859, -1.4325135322357987, -1.3658849958527366, -1.299256459469678, -1.2326279230866177, -1.1659993867035574, -1.099370850320497, -1.0327423139374368, -0.9661137775543764, -0.8994852411713143, -0.8328567047882558, -0.7662281684051955, -0.6995996320221334, -0.6329710956390748, -0.5663425592560145, -0.4997140228729542, -0.4330854864898903, -0.36645695010683355, -0.2998284137237732, -0.23319987734070935, -0.16657134095764903, -0.09994280457459226, -0.03331426819153194, 0.03331426819153194, 0.0999428045745887, 0.16657134095765258, 0.2331998773407129, 0.29982841372376967, 0.36645695010683355, 0.43308548648989387, 0.49971402287295064, 0.5663425592560145, 0.6329710956390748, 0.6995996320221316, 0.7662281684051955, 0.8328567047882558, 0.8994852411713161, 0.9661137775543764, 1.0327423139374368, 1.099370850320497, 1.1659993867035574, 1.2326279230866177, 1.299256459469678, 1.3658849958527384, 1.4325135322357987, 1.499142068618859, 1.5657706050019193, 1.6323991413849797, 1.69902767776804, 1.7656562141511003, 1.8322847505341642, 1.898913286917221, 1.9655418233002813, 2.032170359683345, 2.098798896066402, 2.1654274324494622, 2.232055968832526, 2.298684505215583, 2.365313041598643, 2.431941577981707, 2.498570114364764, 2.5651986507478277, 2.631827187130888, 2.698455723513945, 2.7650842598970087, 2.831712796280069, 2.8983413326631258, 2.9649698690461896, 3.0315984054292464, 3.0982269418123067, 3.1648554781953706, 3.2314840145784274, 3.2981125509614877, 3.3647410873445516, 3.4313696237276083, 3.497998160110672, 3.5646266964937325, 3.6312552328767893, 3.697883769259853, 3.7645123056429135, 3.8311408420259703, 3.897769378409034, 3.9643979147920945, 4.031026451175151, 4.097654987558215, 4.164283523941275, 4.230912060324332, 4.297540596707396, 4.364169133090456, 4.430797669473517, 4.497426205856577, 4.564054742239637, 4.630683278622698, 4.697311815005758, 4.763940351388818, 4.830568887771879, 4.897197424154939, 4.963825960537999, 5.03045449692106, 5.09708303330412, 5.163711569687184, 5.230340106070241, 5.296968642453301, 5.363597178836365, 5.4302257152194215, 5.496854251602482, 5.563482787985546, 5.6301113243686025, 5.696739860751663, 5.763368397134727, 5.8299969335177835, 5.896625469900844, 5.963254006283908, 6.029882542666964, 6.096511079050028, 6.163139615433089, 6.229768151816145, 6.296396688199209, 6.36302522458227, 6.429653760965326, 6.49628229734839, 6.562910833731451, 6.629539370114507, 6.696167906497571, 6.7627964428806315, 6.829424979263688, 6.896053515646752, 6.9626820520298125, 7.029310588412873, 7.095939124795933, 7.1625676611789935, 7.229196197562054, 7.295824733945114, 7.362453270328174, 7.429081806711235, 7.495710343094295, 7.562338879477355, 7.628967415860416, 7.695595952243476, 7.76222448862654, 7.828853025009597, 7.895481561392657, 7.962110097775721, 8.028738634158778, 8.095367170541838, 8.161995706924902, 8.228624243307959, 8.295252779691019, 8.361881316074083, 8.42850985245714, 8.4951383888402, 8.56176692522326, 8.62839546160632, 8.695023997989384, 8.761652534372441, 8.828281070755502, 8.894909607138565, 8.961538143521622, 9.028166679904682, 9.094795216287746, 9.161423752670803, 9.228052289053863, 9.294680825436927, 9.361309361819984, 9.427937898203048, 9.494566434586108, 9.561194970969165, 9.627823507352229, 9.69445204373529, 9.761080580118346, 9.82770911650141, 9.89433765288447, 9.960966189267527, 10.02759472565059, 10.094223262033651, 10.160851798416708, 10.227480334799772, 10.294108871182832, 10.360737407565892, 10.427365943948953, 10.493994480332013, 10.560623016715073, 10.627251553098134, 10.693880089481194, 10.760508625864254, 10.827137162247315, 10.893765698630375, 10.960394235013435, 11.027022771396496, 11.09365130777956, 11.160279844162616, 11.226908380545677, 11.29353691692874, 11.360165453311797, 11.426793989694858, 11.493422526077921, 11.560051062460978, 11.626679598844039, 11.693308135227102, 11.75993667161016, 11.82656520799322, 11.893193744376283, 11.95982228075934, 12.026450817142404, 12.093079353525464, 12.159707889908521, 12.226336426291585, 12.292964962674645, 12.359593499057702, 12.426222035440766, 12.492850571823826, 12.559479108206883, 12.626107644589947, 12.692736180973007, 12.759364717356064, 12.825993253739128, 12.892621790122188, 12.959250326505249, 13.025878862888309, 13.09250739927137, 13.15913593565443, 13.22576447203749, 13.29239300842055, 13.35902154480361, 13.42565008118667, 13.492278617569731, 13.558907153952791, 13.625535690335852, 13.692164226718916, 13.758792763101972, 13.825421299485033, 13.892049835868097, 13.958678372251153, 14.025306908634214, 14.091935445017274, 14.158563981400334, 14.225192517783395, 14.291821054166455, 14.358449590549515, 14.425078126932576, 14.491706663315636, 14.558335199698696, 14.62496373608176, 14.691592272464817, 14.758220808847877, 14.824849345230941, 14.891477881613998, 14.958106417997058, 15.024734954380122, 15.091363490763179, 15.15799202714624, 15.224620563529303, 15.29124909991236, 15.35787763629542, 15.424506172678484, 15.49113470906154, 15.557763245444605, 15.624391781827661, 15.691020318210725, 15.75764885459379, 15.824277390976846, 15.890905927359903, 15.957534463742967, 16.024163000126023, 16.090791536509087, 16.15742007289215, 16.224048609275208, 16.29067714565827, 16.35730568204133, 16.423934218424385, 16.49056275480745, 16.557191291190506, 16.62381982757357])
+              .range(['#d7191cff', '#d8191cff', '#d81a1cff', '#d81b1cff', '#d81c1dff', '#d81d1dff', '#d81d1dff', '#d81e1dff', '#d91f1eff', '#d9201eff', '#d9201eff', '#d9211eff', '#d9221eff', '#d9231fff', '#da241fff', '#da241fff', '#da251fff', '#da2620ff', '#da2720ff', '#da2820ff', '#db2820ff', '#db2921ff', '#db2a21ff', '#db2b21ff', '#db2c21ff', '#db2c22ff', '#dc2d22ff', '#dc2e22ff', '#dc2f22ff', '#dc2f22ff', '#dc3023ff', '#dc3123ff', '#dc3223ff', '#dd3323ff', '#dd3324ff', '#dd3424ff', '#dd3524ff', '#dd3624ff', '#dd3725ff', '#de3725ff', '#de3825ff', '#de3925ff', '#de3a26ff', '#de3b26ff', '#de3b26ff', '#df3c26ff', '#df3d27ff', '#df3e27ff', '#df3e27ff', '#df3f27ff', '#df4027ff', '#e04128ff', '#e04228ff', '#e04228ff', '#e04328ff', '#e04429ff', '#e04529ff', '#e14629ff', '#e14629ff', '#e1472aff', '#e1482aff', '#e1492aff', '#e1492aff', '#e14a2bff', '#e24b2bff', '#e24c2bff', '#e24d2bff', '#e24d2cff', '#e24e2cff', '#e24f2cff', '#e3502cff', '#e3512cff', '#e3512dff', '#e3522dff', '#e3532dff', '#e3542dff', '#e4552eff', '#e4552eff', '#e4562eff', '#e4572eff', '#e4582fff', '#e4582fff', '#e5592fff', '#e55a2fff', '#e55b30ff', '#e55c30ff', '#e55c30ff', '#e55d30ff', '#e65e31ff', '#e65f31ff', '#e66031ff', '#e66031ff', '#e66131ff', '#e66232ff', '#e66332ff', '#e76432ff', '#e76432ff', '#e76533ff', '#e76633ff', '#e76733ff', '#e76733ff', '#e86834ff', '#e86934ff', '#e86a34ff', '#e86b34ff', '#e86b35ff', '#e86c35ff', '#e96d35ff', '#e96e35ff', '#e96f35ff', '#e96f36ff', '#e97036ff', '#e97136ff', '#ea7236ff', '#ea7337ff', '#ea7337ff', '#ea7437ff', '#ea7537ff', '#ea7638ff', '#ea7638ff', '#eb7738ff', '#eb7838ff', '#eb7939ff', '#eb7a39ff', '#eb7a39ff', '#eb7b39ff', '#ec7c3aff', '#ec7d3aff', '#ec7e3aff', '#ec7e3aff', '#ec7f3aff', '#ec803bff', '#ed813bff', '#ed813bff', '#ed823bff', '#ed833cff', '#ed843cff', '#ed853cff', '#ee853cff', '#ee863dff', '#ee873dff', '#ee883dff', '#ee893dff', '#ee893eff', '#ef8a3eff', '#ef8b3eff', '#ef8c3eff', '#ef8d3fff', '#ef8d3fff', '#ef8e3fff', '#ef8f3fff', '#f0903fff', '#f09040ff', '#f09140ff', '#f09240ff', '#f09340ff', '#f09441ff', '#f19441ff', '#f19541ff', '#f19641ff', '#f19742ff', '#f19842ff', '#f19842ff', '#f29942ff', '#f29a43ff', '#f29b43ff', '#f29c43ff', '#f29c43ff', '#f29d43ff', '#f39e44ff', '#f39f44ff', '#f39f44ff', '#f3a044ff', '#f3a145ff', '#f3a245ff', '#f4a345ff', '#f4a345ff', '#f4a446ff', '#f4a546ff', '#f4a646ff', '#f4a746ff', '#f4a747ff', '#f5a847ff', '#f5a947ff', '#f5aa47ff', '#f5aa48ff', '#f5ab48ff', '#f5ac48ff', '#f6ad48ff', '#f6ae48ff', '#f6ae49ff', '#f6af49ff', '#f6b049ff', '#f6b149ff', '#f7b24aff', '#f7b24aff', '#f7b34aff', '#f7b44aff', '#f7b54bff', '#f7b64bff', '#f8b64bff', '#f8b74bff', '#f8b84cff', '#f8b94cff', '#f8b94cff', '#f8ba4cff', '#f8bb4dff', '#f9bc4dff', '#f9bd4dff', '#f9bd4dff', '#f9be4dff', '#f9bf4eff', '#f9c04eff', '#fac14eff', '#fac14eff', '#fac24fff', '#fac34fff', '#fac44fff', '#fac54fff', '#fbc550ff', '#fbc650ff', '#fbc750ff', '#fbc850ff', '#fbc851ff', '#fbc951ff', '#fcca51ff', '#fccb51ff', '#fccc51ff', '#fccc52ff', '#fccd52ff', '#fcce52ff', '#fdcf52ff', '#fdd053ff', '#fdd053ff', '#fdd153ff', '#fdd253ff', '#fdd354ff', '#fdd454ff', '#fed454ff', '#fed554ff', '#fed655ff', '#fed755ff', '#fed755ff', '#fed855ff', '#ffd956ff', '#ffda56ff', '#ffdb56ff', '#ffdb56ff', '#ffdc56ff', '#ffdd57ff', '#ffdd57ff', '#fedd57ff', '#fddd57ff', '#fcdc57ff', '#fbdc56ff', '#fadc56ff', '#fadc56ff', '#f9db56ff', '#f8db56ff', '#f7db56ff', '#f6da56ff', '#f5da56ff', '#f4da56ff', '#f3da56ff', '#f2d956ff', '#f1d955ff', '#f0d955ff', '#efd855ff', '#eed855ff', '#eed855ff', '#edd855ff', '#ecd755ff', '#ebd755ff', '#ead755ff', '#e9d655ff', '#e8d655ff', '#e7d654ff', '#e6d654ff', '#e5d554ff', '#e4d554ff', '#e3d554ff', '#e2d454ff', '#e2d454ff', '#e1d454ff', '#e0d454ff', '#dfd354ff', '#ded354ff', '#ddd354ff', '#dcd253ff', '#dbd253ff', '#dad253ff', '#d9d253ff', '#d8d153ff', '#d7d153ff', '#d6d153ff', '#d6d053ff', '#d5d053ff', '#d4d053ff', '#d3d053ff', '#d2cf52ff', '#d1cf52ff', '#d0cf52ff', '#cfce52ff', '#cece52ff', '#cdce52ff', '#ccce52ff', '#cbcd52ff', '#cbcd52ff', '#cacd52ff', '#c9cc52ff', '#c8cc51ff', '#c7cc51ff', '#c6cc51ff', '#c5cb51ff', '#c4cb51ff', '#c3cb51ff', '#c2ca51ff', '#c1ca51ff', '#c0ca51ff', '#bfca51ff', '#bfc951ff', '#bec951ff', '#bdc950ff', '#bcc850ff', '#bbc850ff', '#bac850ff', '#b9c850ff', '#b8c750ff', '#b7c750ff', '#b6c750ff', '#b5c650ff', '#b4c650ff', '#b3c650ff', '#b3c64fff', '#b2c54fff', '#b1c54fff', '#b0c54fff', '#afc44fff', '#aec44fff', '#adc44fff', '#acc44fff', '#abc34fff', '#aac34fff', '#a9c34fff', '#a8c24eff', '#a8c24eff', '#a7c24eff', '#a6c24eff', '#a5c14eff', '#a4c14eff', '#a3c14eff', '#a2c04eff', '#a1c04eff', '#a0c04eff', '#9fc04eff', '#9ebf4eff', '#9dbf4dff', '#9cbf4dff', '#9cbe4dff', '#9bbe4dff', '#9abe4dff', '#99be4dff', '#98bd4dff', '#97bd4dff', '#96bd4dff', '#95bc4dff', '#94bc4dff', '#93bc4cff', '#92bc4cff', '#91bb4cff', '#90bb4cff', '#90bb4cff', '#8fba4cff', '#8eba4cff', '#8dba4cff', '#8cba4cff', '#8bb94cff', '#8ab94cff', '#89b94bff', '#88b84bff', '#87b84bff', '#86b84bff', '#85b84bff', '#84b74bff', '#84b74bff', '#83b74bff', '#82b64bff', '#81b64bff', '#80b64bff', '#7fb64aff', '#7eb54aff', '#7db54aff', '#7cb54aff', '#7bb44aff', '#7ab44aff', '#79b44aff', '#79b44aff', '#78b34aff', '#77b34aff', '#76b34aff', '#75b24aff', '#74b249ff', '#73b249ff', '#72b249ff', '#71b149ff', '#70b149ff', '#6fb149ff', '#6eb049ff', '#6db049ff', '#6db049ff', '#6cb049ff', '#6baf49ff', '#6aaf48ff', '#69af48ff', '#68ae48ff', '#67ae48ff', '#66ae48ff', '#65ae48ff', '#64ad48ff', '#63ad48ff', '#62ad48ff', '#61ac48ff', '#61ac48ff', '#60ac47ff', '#5fac47ff', '#5eab47ff', '#5dab47ff', '#5cab47ff', '#5baa47ff', '#5aaa47ff', '#59aa47ff', '#58aa47ff', '#57a947ff', '#56a947ff', '#55a947ff', '#55a846ff', '#54a846ff', '#53a846ff', '#52a846ff', '#51a746ff', '#50a746ff', '#4fa746ff', '#4ea646ff', '#4da646ff', '#4ca646ff', '#4ba646ff', '#4aa545ff', '#4aa545ff', '#49a545ff', '#48a445ff', '#47a445ff', '#46a445ff', '#45a445ff', '#44a345ff', '#43a345ff', '#42a345ff', '#41a245ff', '#40a244ff', '#3fa244ff', '#3ea244ff', '#3ea144ff', '#3da144ff', '#3ca144ff', '#3ba044ff', '#3aa044ff', '#39a044ff', '#38a044ff', '#379f44ff', '#369f43ff', '#359f43ff', '#349e43ff', '#339e43ff', '#329e43ff', '#329e43ff', '#319d43ff', '#309d43ff', '#2f9d43ff', '#2e9c43ff', '#2d9c43ff', '#2c9c43ff', '#2b9c42ff', '#2a9b42ff', '#299b42ff', '#289b42ff', '#279a42ff', '#279a42ff', '#269a42ff', '#259a42ff', '#249942ff', '#239942ff', '#229942ff', '#219841ff', '#209841ff', '#1f9841ff', '#1e9841ff', '#1d9741ff', '#1c9741ff', '#1b9741ff', '#1b9641ff', '#1a9641ff']);
+    
+
+    color_map_ebd82f57266f6a7332b6556de4167200.x = d3.scale.linear()
+              .domain([-16.62381982757357, 16.62381982757357])
+              .range([0, 450 - 50]);
+
+    color_map_ebd82f57266f6a7332b6556de4167200.legend = L.control({position: 'topright'});
+    color_map_ebd82f57266f6a7332b6556de4167200.legend.onAdd = function (map) {var div = L.DomUtil.create('div', 'legend'); return div};
+    color_map_ebd82f57266f6a7332b6556de4167200.legend.addTo(map_04421eb5f34275df991b16f73e8d842d);
+
+    color_map_ebd82f57266f6a7332b6556de4167200.xAxis = d3.svg.axis()
+        .scale(color_map_ebd82f57266f6a7332b6556de4167200.x)
+        .orient("top")
+        .tickSize(1)
+        .tickValues([-16.62381982757357, 0.0, 16.62381982757357]);
+
+    color_map_ebd82f57266f6a7332b6556de4167200.svg = d3.select(".legend.leaflet-control").append("svg")
+        .attr("id", 'legend')
+        .attr("width", 450)
+        .attr("height", 40);
+
+    color_map_ebd82f57266f6a7332b6556de4167200.g = color_map_ebd82f57266f6a7332b6556de4167200.svg.append("g")
+        .attr("class", "key")
+        .attr("fill", "black")
+        .attr("transform", "translate(25,16)");
+
+    color_map_ebd82f57266f6a7332b6556de4167200.g.selectAll("rect")
+        .data(color_map_ebd82f57266f6a7332b6556de4167200.color.range().map(function(d, i) {
+          return {
+            x0: i ? color_map_ebd82f57266f6a7332b6556de4167200.x(color_map_ebd82f57266f6a7332b6556de4167200.color.domain()[i - 1]) : color_map_ebd82f57266f6a7332b6556de4167200.x.range()[0],
+            x1: i < color_map_ebd82f57266f6a7332b6556de4167200.color.domain().length ? color_map_ebd82f57266f6a7332b6556de4167200.x(color_map_ebd82f57266f6a7332b6556de4167200.color.domain()[i]) : color_map_ebd82f57266f6a7332b6556de4167200.x.range()[1],
+            z: d
+          };
+        }))
+      .enter().append("rect")
+        .attr("height", 40 - 30)
+        .attr("x", function(d) { return d.x0; })
+        .attr("width", function(d) { return d.x1 - d.x0; })
+        .style("fill", function(d) { return d.z; });
+
+    color_map_ebd82f57266f6a7332b6556de4167200.g.call(color_map_ebd82f57266f6a7332b6556de4167200.xAxis).append("text")
+        .attr("class", "caption")
+        .attr("y", 21)
+        .attr("fill", "black")
+        .text("Price per m\u00b2 vs. average price within the same station\u2019s 1500 m area (%) \u00b7 red = cheaper, green = more expensive");
+    
+            var layer_control_d4ee5ec52e3371583a4375f21b867729_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_092a6e1699f3b86636b2fb10943e9ff4,
+                },
+                overlays :  {
+                    "Station rings" : feature_group_8c43ab52672d798f6e36c28d5ed00535,
+                },
+            };
+            let layer_control_d4ee5ec52e3371583a4375f21b867729 = L.control.layers(
+                layer_control_d4ee5ec52e3371583a4375f21b867729_layers.base_layers,
+                layer_control_d4ee5ec52e3371583a4375f21b867729_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_04421eb5f34275df991b16f73e8d842d);
+
+        
+</script>
+</html>
