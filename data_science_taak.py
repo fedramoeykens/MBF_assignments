@@ -838,16 +838,28 @@ key = os.getenv("OPENAI_API_KEY")
 
 
 
-def print_table(t, decimals=1):
-    t = t.copy()
-    for c in t.columns:
-        if c.startswith('n houses'):
-            t[c] = t[c].map(lambda v: '–' if pd.isna(v) else f'{v:,.0f}')
-        elif c.startswith('1500 m avg'):
-            t[c] = t[c].map(lambda v: '–' if pd.isna(v) else f'{v:,.2f}')
-        else:  # the ring columns + 'avg of rings' are percentages
-            t[c] = t[c].map(lambda v: '–' if pd.isna(v) else f'{v:+.{decimals}f}%')
-    print("\n" + t.to_string() + "\n")
+def print_table(t, decimals=2, abs_decimals=2):
+    """Print the station table with absolute values AND percentages per ring,
+    e.g. '3,259 (+4.2%)'."""
+    ref_col = next(c for c in t.columns if c.startswith('1500 m avg'))
+    n_col   = next(c for c in t.columns if c.startswith('n houses'))
+    ring_cols = [c for c in t.columns if c not in (ref_col, n_col, 'avg of rings')]
+
+    out = pd.DataFrame(index=t.index)
+    out[ref_col] = t[ref_col].map(lambda v: '–' if pd.isna(v) else f'{v:,.{abs_decimals}f}')
+    out[n_col]   = t[n_col].map(lambda v: '–' if pd.isna(v) else f'{v:,.2f}')
+
+    for c in ring_cols:
+        absolute = t[ref_col] * (1 + t[c] / 100)      # ring mean = reference * (1 + pct)
+        out[c] = [
+            '–' if pd.isna(p) else f'{a:,.{abs_decimals}f} ({p:+.{decimals}f}%)'
+            for a, p in zip(absolute, t[c])
+        ]
+
+    out['avg of rings'] = t['avg of rings'].map(
+        lambda v: '–' if pd.isna(v) else f'{v:+.{decimals}f}%')
+
+    print("\n" + out.to_string() + "\n")
     
 
 ZCOL   = 'price/m2hab_adj'
@@ -1198,11 +1210,6 @@ print_table(station_table)
 
 # pip install folium branca pyproj scipy pandas numpy
 
-try:
-    display
-except NameError:
-    display = print
-
 # ============================================================
 # CONFIG
 # ============================================================
@@ -1351,7 +1358,7 @@ print(len(stations), 'stations,', len(houses), 'houses')
 
 st_ring       = compute_st_ring(h)
 station_table = station_pct_table(st_ring, stations, min_n=MIN_N)
-display(show_table(station_table))
+print(show_table(station_table))
 
 m = station_ring_map(st_ring, stations, min_n=MIN_N)
 m.save('ghent_station_rings_final_house.html')
