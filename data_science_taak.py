@@ -14,6 +14,7 @@ import branca.colormap as cm
 from pyproj import Transformer
 from scipy.spatial import cKDTree
 
+
 data_realo = pd.read_csv("Realo_MBF_datascience_SALE.csv") 
 
 # ---------------------------------------------------------------------------
@@ -835,11 +836,19 @@ load_dotenv()
 key = os.getenv("OPENAI_API_KEY")
 
 
-# pip install folium branca pyproj scipy
-import re, numpy as np, pandas as pd, folium
-import branca.colormap as cm
-from pyproj import Transformer
-from scipy.spatial import cKDTree
+
+
+def print_table(t, decimals=1):
+    t = t.copy()
+    for c in t.columns:
+        if c.startswith('n houses'):
+            t[c] = t[c].map(lambda v: '–' if pd.isna(v) else f'{v:,.0f}')
+        elif c.startswith('1500 m avg'):
+            t[c] = t[c].map(lambda v: '–' if pd.isna(v) else f'{v:,.2f}')
+        else:  # the ring columns + 'avg of rings' are percentages
+            t[c] = t[c].map(lambda v: '–' if pd.isna(v) else f'{v:+.{decimals}f}%')
+    print("\n" + t.to_string() + "\n")
+    
 
 ZCOL   = 'price/m2hab_adj'
 EDGES  = [ 250, 500, 1000, 1500]
@@ -1155,6 +1164,7 @@ m.save('brussels_station_rings_FINAL_HOUSES.html')
 station_table = station_pct_table(st_ring, stations, min_n=3)    # use the same min_n as the map
 
 show_table(station_table)
+print_table(station_table)
 
 stations = load_stations('stations_bxl_all.csv')
 houses   = prepare_houses(df[df['housingType']=='HOUSE'],zcol='mScore')
@@ -1168,6 +1178,7 @@ m.save('brussels_station_rings_FINAL_HOUSES.html')
 station_table = station_pct_table(st_ring, stations, min_n=3)    # use the same min_n as the map
 
 show_table(station_table)
+print_table(station_table)
 
 
 stations = load_stations('stations_bxl_all.csv')
@@ -1182,6 +1193,7 @@ m.save('brussels_station_rings_FINAL_HOUSES.html')
 station_table = station_pct_table(st_ring, stations, min_n=3)    # use the same min_n as the map
 
 show_table(station_table)
+print_table(station_table)
 
 
 # pip install folium branca pyproj scipy pandas numpy
@@ -1345,6 +1357,7 @@ m = station_ring_map(st_ring, stations, min_n=MIN_N)
 m.save('ghent_station_rings_final_house.html')
 print(m)
 
+print_table(station_table)
 
 def compute_st_ring(h, zcol=ZCOL):
     inside = h[h['ring'] < NR]
@@ -1365,6 +1378,8 @@ print(len(stations), 'stations,', len(houses), 'houses')
 st_ring = compute_st_ring(h,zcol='energyConsumption')
 station_table = station_pct_table(st_ring, stations, min_n=3)
 
+print_table(station_table)
+
 pct_cols = [c for c in station_table.columns if c != '1500 m avg €/m²']
 print(
     station_table.style
@@ -1384,3 +1399,7 @@ print(
     station_table.style
         .format({**{c: '{:+.2f}%' for c in pct_cols}, '1500 m avg mScore': '€{:,.2f}'}, na_rep='–')
 )
+
+
+    
+print_table(station_table)
