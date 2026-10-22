@@ -1061,29 +1061,19 @@ def station_ring_map(
 
 HUB_PATTERNS = HUBS = ['Brussel-Noord', 'Brussel-Centraal', 'Brussel-Zuid']      # Brussel-Zuid
 
-def filter_stations(h, stations, min_circle=100, min_inner=20,
+def filter_stations(houses, stations, min_circle=100, min_inner=20,
                     hub_patterns=HUB_PATTERNS, hub_radius=500):
-    """
-    Keep Noord/Centraal/Zuid always. Drop other stations that are
-      - within hub_radius metres of one of those three hubs, or
-      - below min_circle houses within 1500 m, or
-      - below min_inner houses within 0-250 m.
-    """
-    inside   = h[h['ring'] < NR]
+    h0 = assign_rings(houses, stations)              # pass 1: all stations, only for counting
+    inside   = h0[h0['ring'] < NR]
     n_circle = inside.groupby('station_idx').size().reindex(stations.index, fill_value=0)
     n_inner  = inside[inside['ring'] == 0].groupby('station_idx').size().reindex(stations.index, fill_value=0)
 
-    # --- find the hubs by name ---
     names  = stations['name'].astype(str)
     is_hub = pd.Series(False, index=stations.index)
     for p in hub_patterns:
         is_hub |= names.str.contains(p, case=False, regex=True)
     print('Protected hubs:', list(names[is_hub]))
-    if is_hub.sum() != len(hub_patterns):
-        print(f'WARNING: expected {len(hub_patterns)} hubs, matched {is_hub.sum()}. '
-              'Check the names above and adjust hub_patterns.')
 
-    # --- distance of every station to its nearest hub (metres, Belgian Lambert 72) ---
     tr = Transformer.from_crs(4326, 31370, always_xy=True)
     sx, sy = tr.transform(stations['lon'].values, stations['lat'].values)
     pts = np.c_[sx, sy]
@@ -1100,16 +1090,12 @@ def filter_stations(h, stations, min_circle=100, min_inner=20,
         ['hub (always kept)', f'within {hub_radius} m of a hub',
          f'<{min_circle} houses in 1500 m', f'<{min_inner} houses in 0-250 m'],
         default='kept')
-
     report = stations.assign(n_1500=n_circle, n_0_250=n_inner,
                              dist_to_hub_m=np.round(d_hub), kept=keep, reason=reason)
 
-    # Renumber survivors 0..k-1 so station_idx still matches stations.iterrows()
-    keep_s  = pd.Series(keep, index=stations.index)
-    new_idx = pd.Series(np.arange(keep.sum()), index=stations.index[keep_s])
-    stations_f = stations[keep_s].reset_index(drop=True)
-    h_f = h[h['station_idx'].isin(new_idx.index)].copy()
-    h_f['station_idx'] = h_f['station_idx'].map(new_idx).astype(int)
+    stations_f = stations[keep].reset_index(drop=True)
+    h_f = assign_rings(houses, stations_f)           # pass 2: houses re-assigned to the kept stations
+    print(f"houses within 1500 m of a station: {(h0['ring'] < NR).sum()} before, {(h_f['ring'] < NR).sum()} after")
     return h_f, stations_f, report
 
 def station_pct_table(st_ring, stations, min_n=3, parameter='€/m²', sort_by='0-250 m'):
@@ -1153,22 +1139,20 @@ def show_table(station_table, parameter='€/m²'):
     
     
 stations = load_stations('stations_bxl_all.csv')
-houses   = prepare_houses(df[df['housingType']=='HOUSE'],zcol='price/m2hab_adj')
-h        = assign_rings(houses, stations)
+houses   = prepare_houses(df[df['housingType']=='HOUSE'], zcol='price/m2hab_adj')
 
-h, stations, report = filter_stations(h, stations, min_circle=100, min_inner=20)
+h, stations, report = filter_stations(houses, stations, min_circle=100, min_inner=20)   # assign_rings happens in here
 print(len(stations), 'stations kept,', (~report['kept']).sum(), 'removed')
 
-m, table, st_ring = station_ring_map(h, stations, per_station=True,zcol='price/m2hab_adj')
-m.save('brussels_station_rings_FINAL_HOUSES.html')
+m, table, st_ring = station_ring_map(h, stations, per_station=True, zcol='price/m2hab_adj')
+
+m.save('brussels_station_rings_FINAL_APP.html')
 print(table)
 print(m)
 
 stations = load_stations('stations_bxl_all.csv')
 houses   = prepare_houses(df[df['housingType']=='HOUSE'],zcol='price/m2hab_adj')
-h        = assign_rings(houses, stations)
-
-h, stations, report = filter_stations(h, stations, min_circle=100, min_inner=20)
+h, stations, report = filter_stations(houses, stations, min_circle=100, min_inner=20)
 print(len(stations), 'stations kept,', (~report['kept']).sum(), 'removed')
 
 m, table, st_ring = station_ring_map(h, stations, per_station=True,zcol='price/m2hab_adj')
@@ -1182,7 +1166,7 @@ stations = load_stations('stations_bxl_all.csv')
 houses   = prepare_houses(df[df['housingType']=='HOUSE'],zcol='mScore')
 h        = assign_rings(houses, stations)
 
-h, stations, report = filter_stations(h, stations, min_circle=100, min_inner=20)
+h, stations, report = filter_stations(houses, stations, min_circle=100, min_inner=20)
 print(len(stations), 'stations kept,', (~report['kept']).sum(), 'removed')
 
 m, table, st_ring = station_ring_map(h, stations, per_station=True,zcol='mScore')
@@ -1197,7 +1181,7 @@ stations = load_stations('stations_bxl_all.csv')
 houses   = prepare_houses(df[df['housingType']=='HOUSE'],zcol='mScore')
 h        = assign_rings(houses, stations)
 
-h, stations, report = filter_stations(h, stations, min_circle=100, min_inner=20)
+h, stations, report = filter_stations(houses, stations, min_circle=100, min_inner=20)
 print(len(stations), 'stations kept,', (~report['kept']).sum(), 'removed')
 
 m, table, st_ring = station_ring_map(h, stations, per_station=True,zcol='energyConsumption')
