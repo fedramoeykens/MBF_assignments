@@ -1360,6 +1360,7 @@ def compute_st_ring(h, zcol=ZCOL):
     return st_ring
 
 
+#change house to appartment to get our tabled version
 
 stations = load_stations('stations_ghent.csv')
 houses   = prepare_houses(df[df['housingType']=='HOUSE'])     # same house-only filter as Brussels
