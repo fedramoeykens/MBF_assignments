@@ -439,12 +439,13 @@ print(f"\n'lastListing': {n_missing_lastListing} listings without a last listing
 test_year = 2026 #Toegevoegd, want anders zouden we duplicaten van de test data verwijderen
 
 timing = ['firstListing', 'lastListing']
-d = data_immoweb_cleaned.drop(columns='n_listings', errors='ignore').copy()
-assert d.columns.is_unique, d.columns[d.columns.duplicated()].tolist()   # shows the culprit if names still repeat
+d = data_immoweb_cleaned.drop(columns='n_listings', errors='ignore').copy()   # no-op if the column isn't there
+assert d.columns.is_unique, d.columns[d.columns.duplicated()].tolist()
+d[timing] = d[timing].apply(pd.to_datetime)        # real dates, so min/max and later subtraction work
 
-is_2026 = pd.to_datetime(d['lastListing']).dt.year == 2026
+is_2026 = d['lastListing'].dt.year == 2026
 cand    = d[~is_2026]
-keep    = d[is_2026].assign(n_listings=1)
+keep    = d[is_2026]
 
 cols = [c for c in d.columns if c not in timing]
 h    = pd.util.hash_pandas_object(cand[cols], index=False)
@@ -454,13 +455,10 @@ agg = {c: 'first' for c in d.columns}
 agg['firstListing'] = 'min'
 agg['lastListing']  = 'max'
 
-g = cand[dup].assign(_h=h[dup]).sort_values('firstListing', kind='stable').groupby('_h', sort=False)
-collapsed = g.agg(agg).reset_index(drop=True)
-collapsed['n_listings'] = g.size().values
+collapsed = (cand[dup].assign(_h=h[dup]).sort_values('firstListing', kind='stable')
+                      .groupby('_h', sort=False).agg(agg).reset_index(drop=True))
 
-data_immoweb_cleaned = pd.concat([cand[~dup].assign(n_listings=1),
-                                  collapsed[list(d.columns) + ['n_listings']],
-                                  keep], ignore_index=True)
+data_immoweb_cleaned = pd.concat([cand[~dup], collapsed[list(d.columns)], keep], ignore_index=True)
 print(len(d), '->', len(data_immoweb_cleaned), 'rows;', is_2026.sum(), 'rows from 2026 left untouched')
 
 # ### Add Time on The Market
@@ -546,7 +544,7 @@ test_data = data_immoweb_cleaned[is_test].copy()
 print("\n" + "=" * 70)
 print("TRAINING AND TEST DATA")
 print("=" * 70)
-print(f"Training data (last listing in 2023-2025): {training_data_unclean.shape[0]} observations")
+print(f"Training data (last listing in 2023-2025): {training_data.shape[0]} observations")
 print(f"Test data (last listing in 2026):          {test_data.shape[0]} observations")
 print(f"Not used (last listing before 2023):       {(~is_train & ~is_test).sum()} observations")
 
@@ -569,11 +567,264 @@ test_data_en = test_data.copy()
 
 
 
-# ---
-# 
+# 6.Regressing the variables to find importance
+
+column_groups = {
+    "target": ["ln(price)"],
+    "location": ["admin1", "admin2", "locality", "subLocality", "postalCode", "marker"],
+    "property_type": ["housingType", "secondaryHousingType", "detachment", "numberOfSides", "isPublicSale"],
+    "size_layout": ["habitableArea", "buildingArea", "terraceArea", "estimatedArea", "estimatedGardenArea",
+                    "numberOfBedrooms", "numberOfBathrooms", "numberOfToilets", "numberOfFloors", "floor"],
+    "age_condition": ["buildYear", "renovationYear", "isNewBuild", "buildingCondition"],
+    "energy": ["energyConsumption", "certificateDate", "eLevel", "kLevel", "heatingType",
+               "hasCentralHeating", "hasSolarBoiler","hasSolarPanels", "hasSingleGlass", "hasDoubleGlass"],
+    "features": ["hasGarden", "hasSwimmingPool"],
+    "neighbourhood": ["distanceToNearestCenter", "busStopDistance", "trainStopDistance",
+                      "schoolDistance", "mScore", "greenCoverage", "floodProneLocation"],
+    "tax_value": ["cadastralIncome"],
+    "listing_timing": ["timeOnTheMarket", "lastListing_year", "lastListing_month"],
+}
 
 
-# 6. Imputing the missing values (elastic net only)
+import numpy as np
+import pandas as pd
+from itertools import combinations, product
+from sklearn.linear_model import LinearRegression
+
+BASE = ['numberOfBathrooms', 'numberOfBedrooms', 'energyConsumption']
+
+
+def _categorize(col, b):
+    if b is None:
+        out = col.astype(object)
+    elif isinstance(b, dict):                                      # merge/rename categories
+        out = col.astype(object).map(lambda z: b.get(z, z) if pd.notna(z) else z)
+    else:                                                          # numeric bin edges
+        b = list(b)
+        labels = [f'<{b[0]:g}'] + [f'{a:g}-{c:g}' for a, c in zip(b[:-1], b[1:])] + [f'>={b[-1]:g}']
+        out = pd.cut(pd.to_numeric(col, errors='coerce'), [-np.inf] + b + [np.inf],
+                     labels=labels, right=False).astype(object)
+    return out.where(out.notna(), 'MISSING').astype(str)
+
+
+def compare_models(df, add, base=BASE, target='ln(price)', test=None, max_models=300, bins=None):
+    """add: {'buildYear': 'both', 'buildingCondition': 'cat', 'floor': 'lin', ...}
+    'lin' = numeric (missing -> median + a was-missing indicator, rows are kept)
+    'cat' = dummies (missing -> its own level)   'both' = tries lin AND cat.
+    Every combination of the added variables is fitted (1, 2, 3, ... at a time).
+    test = optional hold-out frame for out-of-sample MAPE.
+    bins = choose the categories of a 'cat' variable, e.g.
+           {'buildYear': [1945, 1970, 1990, 2000, 2012],            # numeric: edges, [a, b) bins, 2012 -> '2012+'
+            'buildingCondition': {'TO_RENOVATE': 'BAD', 'TO_REBUILD': 'BAD'}}   # categorical: merge levels"""
+    bins = bins or {}
+    base = list(base)
+    add = {v: 'both' for v in add} if not isinstance(add, dict) else dict(add)
+
+    def prep(x, medians=None):
+        x = x.dropna(subset=[target] + base).copy()                 # only the base variables drop rows
+        med = {} if medians is None else medians
+        for v, ty in add.items():
+            if ty in ('lin', 'both'):
+                num = pd.to_numeric(x[v], errors='coerce')
+                if medians is None:
+                    med[v] = num.median()
+                x[v + '__miss'] = num.isna().astype(float)
+                x[v + '__lin'] = num.fillna(med[v])
+            if ty in ('cat', 'both'):
+                x[v + '__cat'] = _categorize(x[v], bins.get(v))
+        return x, med
+
+    d, med = prep(df)
+    t = prep(test, med)[0] if test is not None else None
+    for v in bins:
+        if v in add and add[v] in ('cat', 'both'):
+            print(f'  {v} categories:', d[v + '__cat'].value_counts().to_dict())
+    miss = {v: d[v + '__miss'].sum() for v, ty in add.items() if ty in ('lin', 'both')}
+    print(f'{len(d):,} rows used (only rows missing a BASE variable or the target are dropped)')
+    for v, n in miss.items():
+        if n: print(f'  {v}: {int(n):,} missing -> filled with median + indicator in "lin" models')
+
+    def design(x, spec, cols=None):
+        lin = list(base)
+        cat = []
+        for v, kind in spec:
+            if kind == 'lin':
+                lin += [v + '__lin'] + ([v + '__miss'] if miss[v] else [])
+            else:
+                cat.append(v + '__cat')
+        X = x[lin].astype(float)
+        if cat:
+            X = pd.concat([X, pd.get_dummies(x[cat], drop_first=True, dtype=float)], axis=1)
+        if cols is not None:
+            return X.reindex(columns=cols, fill_value=0.0)
+        return X.loc[:, X.nunique() > 1]                             # drop constant columns
+
+    def mape(y, p):
+        return np.mean(np.abs(np.exp(p) - np.exp(y)) / np.exp(y)) * 100
+
+    y = d[target].astype(float)
+
+    def run(spec):
+        X = design(d, spec)
+        m = LinearRegression().fit(X, y)
+        p = m.predict(X)
+        n, k = X.shape
+        r2 = 1 - ((y - p) ** 2).sum() / ((y - y.mean()) ** 2).sum()
+        label = ' + '.join(f'{v}({kind})' for v, kind in spec) or 'base'
+        row = {'n_added': len(spec), 'model': label, 'params': k,
+               'adj_R2': 1 - (1 - r2) * (n - 1) / (n - k - 1), 'MAPE_%': mape(y, p)}
+        if t is not None:
+            row['MAPE_test_%'] = mape(t[target].astype(float), m.predict(design(t, spec, X.columns)))
+        return row
+
+    kinds = {v: (['lin', 'cat'] if ty == 'both' else [ty]) for v, ty in add.items()}
+    specs = [()]
+    for size in range(1, len(add) + 1):
+        for subset in combinations(add, size):
+            for combo in product(*[kinds[v] for v in subset]):
+                specs.append(tuple(zip(subset, combo)))
+    if len(specs) > max_models:
+        raise ValueError(f'{len(specs)} models; raise max_models or add fewer variables')
+
+    out = pd.DataFrame([run(s) for s in specs])
+    out['d_adj_R2'] = out['adj_R2'] - out.loc[0, 'adj_R2']
+    out['d_MAPE'] = out['MAPE_%'] - out.loc[0, 'MAPE_%']
+    return out.sort_values(['n_added', 'adj_R2'], ascending=[True, False]).round(4).reset_index(drop=True)
+
+res = compare_models(training_data,
+    add={'buildYear': 'both', 'buildingCondition': 'cat', 'isNewBuild': 'cat','renovationYear':'lin'},
+    bins={
+        'buildYear': [1980,2000, 2012]
+    })
+print(res.to_string())
+
+
+
+###From this we can see that the best MAPE's are buildyear + buildingCondition+isNewBuid +renovationYear(lin) and Buildyear(cat)+buildingCondition(cat) we will use the latter as improvement of MAPE is very small and 3 parameters more, then we can use isNewBuild and renovationYear(lin) to impute the data better.
+
+## Voorbeeld: 
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+BLUE, ORANGE, GREY = '#257de0', '#f47230', '#bdbdbd'
+COND_ORDER = ['NEWBUILD', 'AS_NEW', 'GOOD', 'RENOVATED', 'TO_RENOVATE', 'TO_REFURBISH', 'TO_REBUILD', 'MISSING']
+
+
+def explore_overlap(d, year_bins=(1980, 2000, 2012), save='overlap.png'):
+    """Reads d (nothing is changed). Shows how buildYear, buildingCondition, isNewBuild and
+    renovationYear overlap, and counts what could later be filled in or is contradictory.
+    Returns a DataFrame of True/False rule flags (one column per rule) for later imputation."""
+    b = list(year_bins)
+    labels = [f'<{b[0]}'] + [f'{a}-{c - 1}' for a, c in zip(b[:-1], b[1:])] + [f'{b[-1]}+']
+    last, prev = labels[-1], labels[-2]
+
+    def ybin(s):
+        return pd.cut(pd.to_numeric(s, errors='coerce'), [-np.inf] + b + [np.inf],
+                      labels=labels, right=False).astype(object).fillna('no year')
+
+    yr = pd.to_numeric(d['buildYear'], errors='coerce')
+    ren = pd.to_numeric(d['renovationYear'], errors='coerce')
+    cond = d['buildingCondition'].astype(object).fillna('MISSING')
+    new = d['isNewBuild'].astype(object).map({True: 'True', False: 'False'}).fillna('NA')
+    yb, rb = ybin(yr), ybin(ren).replace('no year', 'no renovation')
+    N = len(d)
+
+    # ---- 1. missing values and which ones are missing together
+    miss = pd.DataFrame({'buildYear': yr.isna(), 'buildingCondition': cond.eq('MISSING'),
+                         'isNewBuild': new.eq('NA'), 'renovationYear': ren.isna()})
+    print('=== MISSING VALUES ===')
+    print(pd.DataFrame({'missing': miss.sum(), '%': (miss.mean() * 100).round(1)}).to_string())
+    pat = miss.apply(lambda r: ' + '.join(r.index[r]) or 'nothing missing', axis=1).value_counts()
+    print('\n=== MISSING TOGETHER (top 8) ===')
+    print(pd.DataFrame({'rows': pat, '%': (pat / N * 100).round(1)}).head(8).to_string())
+
+    # ---- 2. overlaps
+    cols = labels + ['no year']
+    print(f'\n=== isNewBuild x buildYear bin (rows) ===')
+    print(pd.crosstab(new, yb).reindex(columns=cols, fill_value=0).to_string())
+    print('\n=== buildingCondition x buildYear bin (rows) ===')
+    ct = pd.crosstab(cond, yb).reindex(columns=cols, fill_value=0)
+    print(ct.reindex([c for c in COND_ORDER if c in ct.index]).to_string())
+    print('\n=== buildingCondition x isNewBuild (rows) ===')
+    print(pd.crosstab(cond, new).reindex([c for c in COND_ORDER if c in cond.unique()]).to_string())
+    print('\n=== renovationYear bin x buildingCondition (rows) ===')
+    ct2 = pd.crosstab(rb, cond)
+    print(ct2.reindex(columns=[c for c in COND_ORDER if c in ct2.columns]).to_string())
+    gap = (ren - yr).dropna()
+    print(f'\nrenovationYear - buildYear (years), {len(gap):,} rows with both: {gap.describe().round(1).to_dict()}')
+
+    # ---- 3. rules: what could be filled later / what contradicts
+    is_new, known_year = new.eq('True'), yb.ne('no year')
+    R = {
+        # fill candidates (a value is missing, another variable points to it)
+        f'FILL buildYear -> {last}: year missing, isNewBuild=True': yr.isna() & is_new,
+        'FILL condition -> NEWBUILD: condition missing, isNewBuild=True': cond.eq('MISSING') & is_new,
+        f'FILL condition -> NEWBUILD: condition missing, year in {last}': cond.eq('MISSING') & yb.eq(last),
+        f'FILL buildYear -> {prev} or {last}: year missing, condition NEWBUILD, isNewBuild not True':
+            yr.isna() & cond.eq('NEWBUILD') & ~is_new,
+        # contradictions
+        f'CONFLICT isNewBuild=True but year not in {last}': is_new & known_year & yb.ne(last),
+        'CONFLICT isNewBuild=True but condition is not NEWBUILD/missing': is_new & ~cond.isin(['NEWBUILD', 'MISSING']),
+        'CONFLICT condition NEWBUILD but isNewBuild=False': cond.eq('NEWBUILD') & new.eq('False'),
+        f'CONFLICT condition NEWBUILD but year before {b[-2]}': cond.eq('NEWBUILD') & known_year & ~yb.isin([prev, last]),
+        'CONFLICT renovationYear before buildYear': (ren < yr),
+        'INFO renovationYear present on an isNewBuild=True row': ren.notna() & is_new,
+    }
+    flags = pd.DataFrame(R).fillna(False).astype(bool)
+    summ = pd.DataFrame({'rows': flags.sum(), '%': (flags.mean() * 100).round(2)})
+    print('\n=== FILL CANDIDATES / CONFLICTS (nothing is changed) ===')
+    print(summ.to_string())
+
+    # ---- 4. figure
+    fig, axs = plt.subplots(2, 2, figsize=(17, 10))
+    ax = axs[0, 0]
+    ax.barh(summ.index[::-1], summ['rows'][::-1],
+            color=[ORANGE if i.startswith('CONFLICT') else BLUE if i.startswith('FILL') else GREY for i in summ.index[::-1]])
+    ax.tick_params(axis='y', labelsize=7)
+    ax.set_title('Fill candidates (blue) and conflicts (orange), rows', loc='left', fontweight='bold')
+    ax = axs[0, 1]
+    pp = pat.head(8)[::-1]
+    ax.barh(pp.index, pp.values, color=BLUE)
+    ax.set_title('Which variables are missing together', loc='left', fontweight='bold')
+    for ax, (tab, title) in zip([axs[1, 0], axs[1, 1]],
+                                [(pd.crosstab(new, yb).reindex(columns=cols, fill_value=0), 'isNewBuild x buildYear bin (row %)'),
+                                 (ct.reindex([c for c in COND_ORDER if c in ct.index]), 'buildingCondition x buildYear bin (row %)')]):
+        pct = tab.div(tab.sum(axis=1), axis=0).fillna(0)
+        ax.imshow(pct.values, cmap='Blues', aspect='auto', vmin=0, vmax=1)
+        ax.set_xticks(range(len(tab.columns)), tab.columns, rotation=30, ha='right', fontsize=8)
+        ax.set_yticks(range(len(tab.index)), [f'{i} (n={tab.loc[i].sum():,})' for i in tab.index], fontsize=8)
+        for i in range(pct.shape[0]):
+            for j in range(pct.shape[1]):
+                if pct.values[i, j] >= 0.01:
+                    ax.text(j, i, f'{pct.values[i, j]:.0%}', ha='center', va='center', fontsize=7,
+                            color='white' if pct.values[i, j] > 0.6 else '#191919')
+        ax.set_title(title, loc='left', fontweight='bold')
+    for ax in axs.flat:
+        for s in ('top', 'right'):
+            ax.spines[s].set_visible(False)
+    fig.tight_layout()
+    fig.savefig(save, dpi=130)
+    plt.show()
+    return flags
+
+
+flags = explore_overlap(training_data)      
+
+## Other example: SchoolDistance and Mscore
+
+
+
+res = compare_models(training_data,
+    add={'mScore':'both','schoolDistance':'lin'},
+    bins={
+        'mScore': [8,8.5,9]
+    })
+print(res.to_string())
+
+
+#7. Imputing the missing values (elastic net only)
 
 
 # ---
